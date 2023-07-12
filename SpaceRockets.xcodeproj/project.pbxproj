@@ -7,25 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B6C0D7C2A5CB92200F27F36 /* DataRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C0D7B2A5CB92200F27F36 /* DataRocket.swift */; };
+		9B6C0D7E2A5CBD6D00F27F36 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C0D7D2A5CBD6D00F27F36 /* ViewModelType.swift */; };
 		9B7629A92A5C1989005E3C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629A82A5C1989005E3C72 /* AppDelegate.swift */; };
 		9B7629AB2A5C1989005E3C72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629AA2A5C1989005E3C72 /* SceneDelegate.swift */; };
 		9B7629AD2A5C1989005E3C72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629AC2A5C1989005E3C72 /* ViewController.swift */; };
-		9B7629B02A5C1989005E3C72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B7629AE2A5C1989005E3C72 /* Main.storyboard */; };
 		9B7629B32A5C1989005E3C72 /* Space_Rockets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629B12A5C1989005E3C72 /* Space_Rockets.xcdatamodeld */; };
 		9B7629B52A5C198A005E3C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B7629B42A5C198A005E3C72 /* Assets.xcassets */; };
 		9B7629B82A5C198A005E3C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B7629B62A5C198A005E3C72 /* LaunchScreen.storyboard */; };
+		9B7629C32A5C1CB9005E3C72 /* ViewModelRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629C22A5C1CB9005E3C72 /* ViewModelRocket.swift */; };
+		9B849E982A5D7A8E000E997F /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B849E972A5D7A8E000E997F /* ObservableObject.swift */; };
+		9BB1928E2A5E1254007DFB17 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9BB1928D2A5E1254007DFB17 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9B7629A52A5C1989005E3C72 /* Space Rockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Rockets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B6C0D7B2A5CB92200F27F36 /* DataRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRocket.swift; sourceTree = "<group>"; };
+		9B6C0D7D2A5CBD6D00F27F36 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		9B7629A52A5C1989005E3C72 /* SpaceRockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceRockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B7629A82A5C1989005E3C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B7629AA2A5C1989005E3C72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9B7629AC2A5C1989005E3C72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9B7629AF2A5C1989005E3C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B7629B22A5C1989005E3C72 /* Space_Rockets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Rockets.xcdatamodel; sourceTree = "<group>"; };
 		9B7629B42A5C198A005E3C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B7629B72A5C198A005E3C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B7629B92A5C198A005E3C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B7629C22A5C1CB9005E3C72 /* ViewModelRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelRocket.swift; sourceTree = "<group>"; };
+		9B849E972A5D7A8E000E997F /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +40,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB1928E2A5E1254007DFB17 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B6C0D7F2A5CBD7300F27F36 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C0D7D2A5CBD6D00F27F36 /* ViewModelType.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		9B76299C2A5C1989005E3C72 = {
 			isa = PBXGroup;
 			children = (
@@ -50,7 +66,7 @@
 		9B7629A62A5C1989005E3C72 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9B7629A52A5C1989005E3C72 /* Space Rockets.app */,
+				9B7629A52A5C1989005E3C72 /* SpaceRockets.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,10 +74,13 @@
 		9B7629A72A5C1989005E3C72 /* Space Rockets */ = {
 			isa = PBXGroup;
 			children = (
+				9B849E972A5D7A8E000E997F /* ObservableObject.swift */,
 				9B7629A82A5C1989005E3C72 /* AppDelegate.swift */,
 				9B7629AA2A5C1989005E3C72 /* SceneDelegate.swift */,
-				9B7629AC2A5C1989005E3C72 /* ViewController.swift */,
-				9B7629AE2A5C1989005E3C72 /* Main.storyboard */,
+				9B6C0D7F2A5CBD7300F27F36 /* Protocol */,
+				9B7629C12A5C1BBE005E3C72 /* Model */,
+				9B7629BF2A5C1B8E005E3C72 /* View */,
+				9B7629C02A5C1B9A005E3C72 /* ViewModel */,
 				9B7629B42A5C198A005E3C72 /* Assets.xcassets */,
 				9B7629B62A5C198A005E3C72 /* LaunchScreen.storyboard */,
 				9B7629B92A5C198A005E3C72 /* Info.plist */,
@@ -70,12 +89,36 @@
 			path = "Space Rockets";
 			sourceTree = "<group>";
 		};
+		9B7629BF2A5C1B8E005E3C72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B7629AC2A5C1989005E3C72 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9B7629C02A5C1B9A005E3C72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9B7629C22A5C1CB9005E3C72 /* ViewModelRocket.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9B7629C12A5C1BBE005E3C72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C0D7B2A5CB92200F27F36 /* DataRocket.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9B7629A42A5C1989005E3C72 /* Space Rockets */ = {
+		9B7629A42A5C1989005E3C72 /* SpaceRockets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9B7629BC2A5C198A005E3C72 /* Build configuration list for PBXNativeTarget "Space Rockets" */;
+			buildConfigurationList = 9B7629BC2A5C198A005E3C72 /* Build configuration list for PBXNativeTarget "SpaceRockets" */;
 			buildPhases = (
 				9B7629A12A5C1989005E3C72 /* Sources */,
 				9B7629A22A5C1989005E3C72 /* Frameworks */,
@@ -85,9 +128,12 @@
 			);
 			dependencies = (
 			);
-			name = "Space Rockets";
+			name = SpaceRockets;
+			packageProductDependencies = (
+				9BB1928D2A5E1254007DFB17 /* SnapKit */,
+			);
 			productName = "Space Rockets";
-			productReference = 9B7629A52A5C1989005E3C72 /* Space Rockets.app */;
+			productReference = 9B7629A52A5C1989005E3C72 /* SpaceRockets.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +151,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9B7629A02A5C1989005E3C72 /* Build configuration list for PBXProject "Space Rockets" */;
+			buildConfigurationList = 9B7629A02A5C1989005E3C72 /* Build configuration list for PBXProject "SpaceRockets" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -114,11 +160,14 @@
 				Base,
 			);
 			mainGroup = 9B76299C2A5C1989005E3C72;
+			packageReferences = (
+				9BB1928C2A5E1254007DFB17 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 9B7629A62A5C1989005E3C72 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9B7629A42A5C1989005E3C72 /* Space Rockets */,
+				9B7629A42A5C1989005E3C72 /* SpaceRockets */,
 			);
 		};
 /* End PBXProject section */
@@ -130,7 +179,6 @@
 			files = (
 				9B7629B82A5C198A005E3C72 /* LaunchScreen.storyboard in Resources */,
 				9B7629B52A5C198A005E3C72 /* Assets.xcassets in Resources */,
-				9B7629B02A5C1989005E3C72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +189,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B7629C32A5C1CB9005E3C72 /* ViewModelRocket.swift in Sources */,
 				9B7629B32A5C1989005E3C72 /* Space_Rockets.xcdatamodeld in Sources */,
 				9B7629AD2A5C1989005E3C72 /* ViewController.swift in Sources */,
 				9B7629A92A5C1989005E3C72 /* AppDelegate.swift in Sources */,
+				9B6C0D7C2A5CB92200F27F36 /* DataRocket.swift in Sources */,
+				9B849E982A5D7A8E000E997F /* ObservableObject.swift in Sources */,
 				9B7629AB2A5C1989005E3C72 /* SceneDelegate.swift in Sources */,
+				9B6C0D7E2A5CBD6D00F27F36 /* ViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9B7629AE2A5C1989005E3C72 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9B7629AF2A5C1989005E3C72 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9B7629B62A5C198A005E3C72 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -220,7 +264,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +318,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -296,7 +340,6 @@
 				INFOPLIST_FILE = "Space Rockets/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +367,6 @@
 				INFOPLIST_FILE = "Space Rockets/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -343,7 +385,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9B7629A02A5C1989005E3C72 /* Build configuration list for PBXProject "Space Rockets" */ = {
+		9B7629A02A5C1989005E3C72 /* Build configuration list for PBXProject "SpaceRockets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9B7629BA2A5C198A005E3C72 /* Debug */,
@@ -352,7 +394,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9B7629BC2A5C198A005E3C72 /* Build configuration list for PBXNativeTarget "Space Rockets" */ = {
+		9B7629BC2A5C198A005E3C72 /* Build configuration list for PBXNativeTarget "SpaceRockets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9B7629BD2A5C198A005E3C72 /* Debug */,
@@ -362,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9BB1928C2A5E1254007DFB17 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9BB1928D2A5E1254007DFB17 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BB1928C2A5E1254007DFB17 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		9B7629B12A5C1989005E3C72 /* Space_Rockets.xcdatamodeld */ = {
