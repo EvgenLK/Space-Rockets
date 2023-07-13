@@ -32,10 +32,25 @@ final class ViewController: UIViewController {
         blackView.addSubview(labelSecondStageBurnTimeInSeconds)
         blackView.addSubview(secondStageBurnTimeInSeconds)
         blackView.addSubview(buttonToViewLaunches)
-
-
+        view.addSubview(pageControl)
+        
         blackView.addSubview(collectionView)
         constraints()
+    }
+    
+    private var pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.numberOfPages = 3
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.currentPageIndicatorTintColor = UIColor.orange
+        pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.8)
+        pageControl.backgroundColor = .systemFill
+        pageControl.addTarget(self, action: #selector(tapPageControl), for: .touchUpInside)
+        return pageControl
+    }()
+    
+   @objc func tapPageControl() {
+        print("hello")
     }
     
     private let scrollInfoRocket: UIScrollView = {
@@ -307,7 +322,7 @@ final class ViewController: UIViewController {
         }
         
         imageRocket.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(-60)
+            make.top.equalToSuperview().offset(-50)
             make.left.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.4)
@@ -454,5 +469,12 @@ final class ViewController: UIViewController {
             make.left.equalToSuperview().offset(32)
             make.height.equalTo(70)
         }
+        
+        pageControl.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.height.equalTo(72)
+        }
+        
     }
 }
