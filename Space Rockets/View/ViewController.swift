@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +24,17 @@ class ViewController: UIViewController {
         blackView.addSubview(firstStageQuantitOfFuelInTons)
         blackView.addSubview(labelFirstStageBurnTimeInSeconds)
         blackView.addSubview(firstStageBurnTimeInSeconds)
-
-
+        blackView.addSubview(labelSecondStep)
+        blackView.addSubview(labelSecondStageNumberOfEngines)
+        blackView.addSubview(secondStageNumberOfEngines)
+        blackView.addSubview(labelSecondStageQuantitOfFuelInTons)
+        blackView.addSubview(secondStageQuantitOfFuelInTons)
+        blackView.addSubview(labelSecondStageBurnTimeInSeconds)
+        blackView.addSubview(secondStageBurnTimeInSeconds)
+        blackView.addSubview(buttonToViewLaunches)
 
 
         blackView.addSubview(collectionView)
-        
         constraints()
     }
     
@@ -213,7 +218,83 @@ class ViewController: UIViewController {
         return firstStageBurnTimeInSeconds
     }()
     
-
+    private let labelSecondStep: UILabel = {
+        let labelSecondStep = UILabel()
+        labelSecondStep.translatesAutoresizingMaskIntoConstraints = false
+        labelSecondStep.font = UIFont(name: "Lab Grotesque", size: 16)
+        labelSecondStep.textColor = .white
+        labelSecondStep.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        labelSecondStep.text = "Вторая ступень"
+        return labelSecondStep
+    }()
+    
+    private let labelSecondStageNumberOfEngines: UILabel = {
+        let StageNumberOfEngines = UILabel()
+        StageNumberOfEngines.translatesAutoresizingMaskIntoConstraints = false
+        StageNumberOfEngines.font = UIFont(name: "Lab Grotesque", size: 16)
+        StageNumberOfEngines.textColor = .white
+        StageNumberOfEngines.text = "Количесво двигателей"
+        return StageNumberOfEngines
+    }()
+    
+    private let secondStageNumberOfEngines: UILabel = {
+        let StageNumberOfEngines = UILabel()
+        StageNumberOfEngines.translatesAutoresizingMaskIntoConstraints = false
+        StageNumberOfEngines.font = UIFont(name: "Lab Grotesque", size: 16)
+        StageNumberOfEngines.textColor = .white
+        StageNumberOfEngines.text = "20"
+        StageNumberOfEngines.textAlignment = .center
+        return StageNumberOfEngines
+    }()
+    
+    private let labelSecondStageQuantitOfFuelInTons: UILabel = {
+        let StageQuantitOfFuelInTons = UILabel()
+        StageQuantitOfFuelInTons.translatesAutoresizingMaskIntoConstraints = false
+        StageQuantitOfFuelInTons.font = UIFont(name: "Lab Grotesque", size: 16)
+        StageQuantitOfFuelInTons.textColor = .white
+        StageQuantitOfFuelInTons.text = "Количесво топлива"
+        return StageQuantitOfFuelInTons
+    }()
+    
+    private let secondStageQuantitOfFuelInTons: UILabel = {
+        let StageQuantitOfFuelInTons = UILabel()
+        StageQuantitOfFuelInTons.translatesAutoresizingMaskIntoConstraints = false
+        StageQuantitOfFuelInTons.font = UIFont(name: "Lab Grotesque", size: 16)
+        StageQuantitOfFuelInTons.textColor = .white
+        StageQuantitOfFuelInTons.text = "350 №%: "
+        StageQuantitOfFuelInTons.textAlignment = .center
+        return StageQuantitOfFuelInTons
+    }()
+    
+    private let labelSecondStageBurnTimeInSeconds: UILabel = {
+        let StageBurnTimeInSeconds = UILabel()
+        StageBurnTimeInSeconds.translatesAutoresizingMaskIntoConstraints = false
+        StageBurnTimeInSeconds.font = UIFont(name: "Lab Grotesque", size: 16)
+        StageBurnTimeInSeconds.textColor = .white
+        StageBurnTimeInSeconds.text = "Время сгорания"
+        return StageBurnTimeInSeconds
+    }()
+    
+    private let secondStageBurnTimeInSeconds: UILabel = {
+        let StageBurnTimeInSeconds = UILabel()
+        StageBurnTimeInSeconds.translatesAutoresizingMaskIntoConstraints = false
+        StageBurnTimeInSeconds.font = UIFont(name: "Lab Grotesque", size: 16)
+        StageBurnTimeInSeconds.textColor = .white
+        StageBurnTimeInSeconds.text = "300 sec"
+        StageBurnTimeInSeconds.textAlignment = .center
+        return StageBurnTimeInSeconds
+    }()
+    
+    private let buttonToViewLaunches: UIButton = {
+        let buttonToViewLaunches = UIButton()
+        buttonToViewLaunches.translatesAutoresizingMaskIntoConstraints = false
+        buttonToViewLaunches.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        buttonToViewLaunches.setTitle("Посмотреть запуски", for: .normal)
+        buttonToViewLaunches.layer.cornerRadius = 20
+        buttonToViewLaunches.backgroundColor = .systemGray
+        buttonToViewLaunches.tintColor = .white
+        return buttonToViewLaunches
+    }()
     
     func constraints() {
         scrollInfoRocket.snp.makeConstraints { make in
@@ -229,11 +310,11 @@ class ViewController: UIViewController {
             make.top.equalToSuperview().offset(-60)
             make.left.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.5)
+            make.height.equalToSuperview().multipliedBy(0.4)
         }
         
         blackView.snp.makeConstraints { make in
-            make.top.equalTo(imageRocket.snp.bottom).offset(-200)
+            make.top.equalTo(imageRocket.snp.bottom).offset(-150)
             make.left.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.8)
@@ -326,6 +407,52 @@ class ViewController: UIViewController {
             make.top.equalToSuperview().offset(512)
             make.right.equalToSuperview().offset(32)
             make.left.equalToSuperview().offset(233)
+        }
+        
+        labelSecondStep.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(576)
+            make.right.equalToSuperview().offset(32)
+            make.left.equalToSuperview().offset(32)
+        }
+        
+        labelSecondStageNumberOfEngines.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(616)
+            make.left.equalToSuperview().offset(32)
+        }
+        
+        secondStageNumberOfEngines.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(616)
+            make.right.equalToSuperview().offset(32)
+            make.left.equalToSuperview().offset(233)
+        }
+        
+        labelSecondStageQuantitOfFuelInTons.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(656)
+            make.left.equalToSuperview().offset(32)
+        }
+        
+        secondStageQuantitOfFuelInTons.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(656)
+            make.right.equalToSuperview().offset(32)
+            make.left.equalToSuperview().offset(233)
+        }
+        
+        labelSecondStageBurnTimeInSeconds.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(696)
+            make.left.equalToSuperview().offset(32)
+        }
+        
+        secondStageBurnTimeInSeconds.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(696)
+            make.right.equalToSuperview().offset(32)
+            make.left.equalToSuperview().offset(233)
+        }
+        
+        buttonToViewLaunches.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(749)
+            make.right.equalToSuperview().offset(-32)
+            make.left.equalToSuperview().offset(32)
+            make.height.equalTo(70)
         }
     }
 }
