@@ -3,8 +3,15 @@ import SnapKit
 
 final class ViewController: UIViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(scrollInfoRocket)
         scrollInfoRocket.addSubview(contentView)
         contentView.addSubview(imageRocket)
@@ -36,6 +43,30 @@ final class ViewController: UIViewController {
         
         blackView.addSubview(collectionView)
         constraints()
+        viewModelInfo = ViewModelInfoRocket()
+        viewModelData = ViewModelDataRocket()
+    }
+    
+    var viewModelData: ViewModelDataRocket? {
+        didSet {
+            guard let viewModelData = viewModelData else { return }
+            labelName.text = viewModelData.name
+        }
+    }
+    
+    var viewModelInfo: ViewModelInfoRocket? {
+        didSet {
+            guard let viewModelInfo = viewModelInfo else { return }
+            dateOneStart.text = viewModelInfo.dateOneStart
+            country.text = viewModelInfo.country
+            startupCost.text = viewModelInfo.startupCost
+            firstStageNumberOfEngines.text = viewModelInfo.firstStageNumberOfEngines
+            firstStageQuantitOfFuelInTons.text = viewModelInfo.firstStageQuantitOfFuelInTons
+            firstStageBurnTimeInSeconds.text = viewModelInfo.firstStageBurnTimeInSeconds
+            secondStageNumberOfEngines.text = viewModelInfo.secondStageNumberOfEngines
+            secondStageQuantitOfFuelInTons.text = viewModelInfo.secondStageQuantitOfFuelInTons
+            secondStageBurnTimeInSeconds.text = viewModelInfo.secondStageBurnTimeInSeconds
+        }
     }
     
     private var pageControl: UIPageControl = {
@@ -50,7 +81,7 @@ final class ViewController: UIViewController {
     }()
     
    @objc func tapPageControl() {
-        print("hello")
+
     }
     
     private let scrollInfoRocket: UIScrollView = {
@@ -66,7 +97,7 @@ final class ViewController: UIViewController {
         return contentView
     }()
     
-    private let imageRocket: UIImageView = {
+    private var imageRocket: UIImageView = {
         let imageRocket = UIImageView()
         imageRocket.translatesAutoresizingMaskIntoConstraints = false
         imageRocket.image = UIImage(named: "rocket")
@@ -124,6 +155,7 @@ final class ViewController: UIViewController {
         dateOneStart.translatesAutoresizingMaskIntoConstraints = false
         dateOneStart.font = UIFont(name: "Lab Grotesque", size: 16)
         dateOneStart.textColor = .white
+        dateOneStart.textAlignment = .center
         dateOneStart.text = "7 февраля 2023"
         return dateOneStart
     }()
@@ -308,8 +340,15 @@ final class ViewController: UIViewController {
         buttonToViewLaunches.layer.cornerRadius = 20
         buttonToViewLaunches.backgroundColor = .systemGray
         buttonToViewLaunches.tintColor = .white
+        buttonToViewLaunches.addTarget(self, action: #selector(viewListSpaceRocket), for: .touchUpInside)
         return buttonToViewLaunches
     }()
+    
+   @objc func viewListSpaceRocket() {
+        let listSpaceRocket = TableListSpaceRocketController()
+       navigationController?.pushViewController(listSpaceRocket, animated: true)
+
+    }
     
     func constraints() {
         scrollInfoRocket.snp.makeConstraints { make in
