@@ -108,8 +108,14 @@ final class ViewController: UIViewController {
         let settingIcon = UIButton()
         settingIcon.translatesAutoresizingMaskIntoConstraints = false
         settingIcon.setImage(UIImage(named: "Setting"), for: .normal)
+        settingIcon.addTarget(self, action: #selector(viewSettingParamRocket), for: .touchUpInside)
         return settingIcon
     }()
+    
+    @objc func viewSettingParamRocket() {
+        let settingParamRocket = SettingViewParamRocketController()
+        present(settingParamRocket, animated: true)
+    }
     
     private let blackView: UIView = {
         let blackView = UIView()
