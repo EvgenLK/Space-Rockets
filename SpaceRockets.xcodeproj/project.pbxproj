@@ -7,22 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B44052B2A65F4A400817714 /* SettingViewParamRocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44052A2A65F4A400817714 /* SettingViewParamRocketController.swift */; };
+		9B60A67A2A6571AB0053F31D /* TableListSpaceRocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60A6792A6571AB0053F31D /* TableListSpaceRocketController.swift */; };
 		9B6C0D7C2A5CB92200F27F36 /* DataRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C0D7B2A5CB92200F27F36 /* DataRocket.swift */; };
-		9B6C0D7E2A5CBD6D00F27F36 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C0D7D2A5CBD6D00F27F36 /* ViewModelType.swift */; };
 		9B7629A92A5C1989005E3C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629A82A5C1989005E3C72 /* AppDelegate.swift */; };
 		9B7629AB2A5C1989005E3C72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629AA2A5C1989005E3C72 /* SceneDelegate.swift */; };
 		9B7629AD2A5C1989005E3C72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629AC2A5C1989005E3C72 /* ViewController.swift */; };
 		9B7629B32A5C1989005E3C72 /* Space_Rockets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629B12A5C1989005E3C72 /* Space_Rockets.xcdatamodeld */; };
 		9B7629B52A5C198A005E3C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B7629B42A5C198A005E3C72 /* Assets.xcassets */; };
 		9B7629B82A5C198A005E3C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B7629B62A5C198A005E3C72 /* LaunchScreen.storyboard */; };
-		9B7629C32A5C1CB9005E3C72 /* ViewModelRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629C22A5C1CB9005E3C72 /* ViewModelRocket.swift */; };
+		9B7629C32A5C1CB9005E3C72 /* ViewModelDataRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629C22A5C1CB9005E3C72 /* ViewModelDataRocket.swift */; };
+		9B787AE22A640C92006A6346 /* ViewModelParamRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B787AE12A640C92006A6346 /* ViewModelParamRocket.swift */; };
+		9B787AE42A640D11006A6346 /* ViewModelInfoRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B787AE32A640D11006A6346 /* ViewModelInfoRocket.swift */; };
 		9B849E982A5D7A8E000E997F /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B849E972A5D7A8E000E997F /* ObservableObject.swift */; };
 		9BB1928E2A5E1254007DFB17 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9BB1928D2A5E1254007DFB17 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B44052A2A65F4A400817714 /* SettingViewParamRocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewParamRocketController.swift; sourceTree = "<group>"; };
+		9B60A6792A6571AB0053F31D /* TableListSpaceRocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListSpaceRocketController.swift; sourceTree = "<group>"; };
 		9B6C0D7B2A5CB92200F27F36 /* DataRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRocket.swift; sourceTree = "<group>"; };
-		9B6C0D7D2A5CBD6D00F27F36 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		9B7629A52A5C1989005E3C72 /* SpaceRockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceRockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B7629A82A5C1989005E3C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B7629AA2A5C1989005E3C72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +35,9 @@
 		9B7629B42A5C198A005E3C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B7629B72A5C198A005E3C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B7629B92A5C198A005E3C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B7629C22A5C1CB9005E3C72 /* ViewModelRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelRocket.swift; sourceTree = "<group>"; };
+		9B7629C22A5C1CB9005E3C72 /* ViewModelDataRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelDataRocket.swift; sourceTree = "<group>"; };
+		9B787AE12A640C92006A6346 /* ViewModelParamRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelParamRocket.swift; sourceTree = "<group>"; };
+		9B787AE32A640D11006A6346 /* ViewModelInfoRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelInfoRocket.swift; sourceTree = "<group>"; };
 		9B849E972A5D7A8E000E997F /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,7 +56,6 @@
 		9B6C0D7F2A5CBD7300F27F36 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				9B6C0D7D2A5CBD6D00F27F36 /* ViewModelType.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -93,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				9B7629AC2A5C1989005E3C72 /* ViewController.swift */,
+				9B60A6792A6571AB0053F31D /* TableListSpaceRocketController.swift */,
+				9B44052A2A65F4A400817714 /* SettingViewParamRocketController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -100,7 +107,9 @@
 		9B7629C02A5C1B9A005E3C72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9B7629C22A5C1CB9005E3C72 /* ViewModelRocket.swift */,
+				9B7629C22A5C1CB9005E3C72 /* ViewModelDataRocket.swift */,
+				9B787AE12A640C92006A6346 /* ViewModelParamRocket.swift */,
+				9B787AE32A640D11006A6346 /* ViewModelInfoRocket.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -189,14 +198,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B7629C32A5C1CB9005E3C72 /* ViewModelRocket.swift in Sources */,
+				9B7629C32A5C1CB9005E3C72 /* ViewModelDataRocket.swift in Sources */,
 				9B7629B32A5C1989005E3C72 /* Space_Rockets.xcdatamodeld in Sources */,
+				9B787AE22A640C92006A6346 /* ViewModelParamRocket.swift in Sources */,
+				9B787AE42A640D11006A6346 /* ViewModelInfoRocket.swift in Sources */,
 				9B7629AD2A5C1989005E3C72 /* ViewController.swift in Sources */,
 				9B7629A92A5C1989005E3C72 /* AppDelegate.swift in Sources */,
 				9B6C0D7C2A5CB92200F27F36 /* DataRocket.swift in Sources */,
 				9B849E982A5D7A8E000E997F /* ObservableObject.swift in Sources */,
 				9B7629AB2A5C1989005E3C72 /* SceneDelegate.swift in Sources */,
-				9B6C0D7E2A5CBD6D00F27F36 /* ViewModelType.swift in Sources */,
+				9B60A67A2A6571AB0053F31D /* TableListSpaceRocketController.swift in Sources */,
+				9B44052B2A65F4A400817714 /* SettingViewParamRocketController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
