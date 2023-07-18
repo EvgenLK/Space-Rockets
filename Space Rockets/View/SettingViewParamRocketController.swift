@@ -19,12 +19,11 @@ class SettingViewParamRocketController: UIViewController {
         view.addSubview(diameterUnit)
         view.addSubview(weightUnit)
         view.addSubview(leoUnit)
-        view.addSubview(heightUnitTougle)
-
-
+        view.addSubview(heightUnitSegmented)
+        view.addSubview(diameterUnitSegmented)
+        view.addSubview(weightUnitSegmented)
+        view.addSubview(leoUnitSegmented)
         constraintsElements()
-
-        
     }
     
     private let titleLabel: UILabel = {
@@ -87,20 +86,33 @@ class SettingViewParamRocketController: UIViewController {
         return leoUnit
     }()
     
-    private let heightUnitTougle: UISwitch = {
-        let heightUnitTougle = UISwitch()
-        heightUnitTougle.onTintColor = .white
-        heightUnitTougle.thumbTintColor = .gray
-        heightUnitTougle.isOn = true
-        heightUnitTougle.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
-        return heightUnitTougle
+    private let heightUnitSegmented: UISegmentedControl = {
+        let heightUnitSegmented = UISegmentedControl(items: ["m","ft"])
+        heightUnitSegmented.backgroundColor = .darkGray
+        heightUnitSegmented.selectedSegmentIndex = 0
+        return heightUnitSegmented
     }()
     
-    @objc private func switchValueChanged(sender: UISwitch) {
-        if !sender.isOn {
-            sender.isOn = true
-        }
-    }
+    private let diameterUnitSegmented: UISegmentedControl = {
+        let diameterUnitSegmented = UISegmentedControl(items: ["m","ft"])
+        diameterUnitSegmented.backgroundColor = .darkGray
+        diameterUnitSegmented.selectedSegmentIndex = 0
+        return diameterUnitSegmented
+    }()
+    
+    private let weightUnitSegmented: UISegmentedControl = {
+        let weightUnitSegmented = UISegmentedControl(items: ["kg","lb"])
+        weightUnitSegmented.backgroundColor = .darkGray
+        weightUnitSegmented.selectedSegmentIndex = 1
+        return weightUnitSegmented
+    }()
+
+    private let leoUnitSegmented: UISegmentedControl = {
+        let leoUnitSegmented = UISegmentedControl(items: ["kg","lb"])
+        leoUnitSegmented.backgroundColor = .darkGray
+        leoUnitSegmented.selectedSegmentIndex = 1
+        return leoUnitSegmented
+    }()
 
     
     func constraintsElements() {
@@ -135,9 +147,32 @@ class SettingViewParamRocketController: UIViewController {
             make.left.equalToSuperview().offset(28)
         }
         
-        heightUnitTougle.snp.makeConstraints { make in
+        heightUnitSegmented.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(120)
             make.right.equalToSuperview().offset(-28)
+            make.width.equalTo(115)
+            make.height.equalTo(40)
+        }
+        
+        diameterUnitSegmented.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(184)
+            make.right.equalToSuperview().offset(-28)
+            make.width.equalTo(115)
+            make.height.equalTo(40)
+        }
+        
+        weightUnitSegmented.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(240)
+            make.right.equalToSuperview().offset(-28)
+            make.width.equalTo(115)
+            make.height.equalTo(40)
+        }
+        
+        leoUnitSegmented.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(304)
+            make.right.equalToSuperview().offset(-28)
+            make.width.equalTo(115)
+            make.height.equalTo(40)
         }
         
     }
