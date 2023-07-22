@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		9B44052B2A65F4A400817714 /* SettingViewParamRocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44052A2A65F4A400817714 /* SettingViewParamRocketController.swift */; };
 		9B60A67A2A6571AB0053F31D /* TableListSpaceRocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60A6792A6571AB0053F31D /* TableListSpaceRocketController.swift */; };
+		9B68454D2A6899FF001EC6C2 /* SpaceDatumRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68454C2A6899FF001EC6C2 /* SpaceDatumRocket.swift */; };
+		9B68454F2A689BAD001EC6C2 /* ViewModelRequestRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68454E2A689BAD001EC6C2 /* ViewModelRequestRocket.swift */; };
 		9B6C0D7C2A5CB92200F27F36 /* DataRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C0D7B2A5CB92200F27F36 /* DataRocket.swift */; };
+		9B73A55E2A67FDE40036D1C1 /* TableViewCellRocketLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73A55D2A67FDE40036D1C1 /* TableViewCellRocketLaunch.swift */; };
+		9B73A5602A680C420036D1C1 /* ViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73A55F2A680C420036D1C1 /* ViewModelCell.swift */; };
+		9B73A5622A680C8D0036D1C1 /* CustomCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73A5612A680C8D0036D1C1 /* CustomCellModel.swift */; };
 		9B7629A92A5C1989005E3C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629A82A5C1989005E3C72 /* AppDelegate.swift */; };
 		9B7629AB2A5C1989005E3C72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629AA2A5C1989005E3C72 /* SceneDelegate.swift */; };
 		9B7629AD2A5C1989005E3C72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629AC2A5C1989005E3C72 /* ViewController.swift */; };
@@ -26,7 +31,12 @@
 /* Begin PBXFileReference section */
 		9B44052A2A65F4A400817714 /* SettingViewParamRocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewParamRocketController.swift; sourceTree = "<group>"; };
 		9B60A6792A6571AB0053F31D /* TableListSpaceRocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListSpaceRocketController.swift; sourceTree = "<group>"; };
+		9B68454C2A6899FF001EC6C2 /* SpaceDatumRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceDatumRocket.swift; sourceTree = "<group>"; };
+		9B68454E2A689BAD001EC6C2 /* ViewModelRequestRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelRequestRocket.swift; sourceTree = "<group>"; };
 		9B6C0D7B2A5CB92200F27F36 /* DataRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRocket.swift; sourceTree = "<group>"; };
+		9B73A55D2A67FDE40036D1C1 /* TableViewCellRocketLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellRocketLaunch.swift; sourceTree = "<group>"; };
+		9B73A55F2A680C420036D1C1 /* ViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCell.swift; sourceTree = "<group>"; };
+		9B73A5612A680C8D0036D1C1 /* CustomCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellModel.swift; sourceTree = "<group>"; };
 		9B7629A52A5C1989005E3C72 /* SpaceRockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceRockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B7629A82A5C1989005E3C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B7629AA2A5C1989005E3C72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +110,7 @@
 				9B7629AC2A5C1989005E3C72 /* ViewController.swift */,
 				9B60A6792A6571AB0053F31D /* TableListSpaceRocketController.swift */,
 				9B44052A2A65F4A400817714 /* SettingViewParamRocketController.swift */,
+				9B73A55D2A67FDE40036D1C1 /* TableViewCellRocketLaunch.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,6 +121,8 @@
 				9B7629C22A5C1CB9005E3C72 /* ViewModelDataRocket.swift */,
 				9B787AE12A640C92006A6346 /* ViewModelParamRocket.swift */,
 				9B787AE32A640D11006A6346 /* ViewModelInfoRocket.swift */,
+				9B73A55F2A680C420036D1C1 /* ViewModelCell.swift */,
+				9B68454E2A689BAD001EC6C2 /* ViewModelRequestRocket.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -118,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				9B6C0D7B2A5CB92200F27F36 /* DataRocket.swift */,
+				9B73A5612A680C8D0036D1C1 /* CustomCellModel.swift */,
+				9B68454C2A6899FF001EC6C2 /* SpaceDatumRocket.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,8 +213,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B68454D2A6899FF001EC6C2 /* SpaceDatumRocket.swift in Sources */,
 				9B7629C32A5C1CB9005E3C72 /* ViewModelDataRocket.swift in Sources */,
 				9B7629B32A5C1989005E3C72 /* Space_Rockets.xcdatamodeld in Sources */,
+				9B73A5602A680C420036D1C1 /* ViewModelCell.swift in Sources */,
+				9B68454F2A689BAD001EC6C2 /* ViewModelRequestRocket.swift in Sources */,
 				9B787AE22A640C92006A6346 /* ViewModelParamRocket.swift in Sources */,
 				9B787AE42A640D11006A6346 /* ViewModelInfoRocket.swift in Sources */,
 				9B7629AD2A5C1989005E3C72 /* ViewController.swift in Sources */,
@@ -207,7 +225,9 @@
 				9B6C0D7C2A5CB92200F27F36 /* DataRocket.swift in Sources */,
 				9B849E982A5D7A8E000E997F /* ObservableObject.swift in Sources */,
 				9B7629AB2A5C1989005E3C72 /* SceneDelegate.swift in Sources */,
+				9B73A55E2A67FDE40036D1C1 /* TableViewCellRocketLaunch.swift in Sources */,
 				9B60A67A2A6571AB0053F31D /* TableListSpaceRocketController.swift in Sources */,
+				9B73A5622A680C8D0036D1C1 /* CustomCellModel.swift in Sources */,
 				9B44052B2A65F4A400817714 /* SettingViewParamRocketController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

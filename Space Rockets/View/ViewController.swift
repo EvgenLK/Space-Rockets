@@ -3,14 +3,15 @@ import SnapKit
 
 final class ViewController: UIViewController {
     
+    let viewres = ViewModelRequestRocket()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModelInfiRoc = ViewModelInfoRocket()
         
         view.addSubview(scrollInfoRocket)
         scrollInfoRocket.addSubview(contentView)
@@ -40,35 +41,30 @@ final class ViewController: UIViewController {
         blackView.addSubview(secondStageBurnTimeInSeconds)
         blackView.addSubview(buttonToViewLaunches)
         view.addSubview(pageControl)
-        
         blackView.addSubview(collectionView)
         constraints()
-        viewModelInfo = ViewModelInfoRocket()
-        viewModelData = ViewModelDataRocket()
-    }
-    
-    var viewModelData: ViewModelDataRocket? {
-        didSet {
-            guard let viewModelData = viewModelData else { return }
-            labelName.text = viewModelData.name
+        
+        viewres.getDataRocket { result in
+            print(result)
         }
     }
     
-    var viewModelInfo: ViewModelInfoRocket? {
-        didSet {
-            guard let viewModelInfo = viewModelInfo else { return }
-            dateOneStart.text = viewModelInfo.dateOneStart
-            country.text = viewModelInfo.country
-            startupCost.text = viewModelInfo.startupCost
-            firstStageNumberOfEngines.text = viewModelInfo.firstStageNumberOfEngines
-            firstStageQuantitOfFuelInTons.text = viewModelInfo.firstStageQuantitOfFuelInTons
-            firstStageBurnTimeInSeconds.text = viewModelInfo.firstStageBurnTimeInSeconds
-            secondStageNumberOfEngines.text = viewModelInfo.secondStageNumberOfEngines
-            secondStageQuantitOfFuelInTons.text = viewModelInfo.secondStageQuantitOfFuelInTons
-            secondStageBurnTimeInSeconds.text = viewModelInfo.secondStageBurnTimeInSeconds
+
+    var viewModelInfiRoc: ViewModelInfoRocket! {
+        didSet{
+            guard let viewModelInfiRoc = viewModelInfiRoc else { return }
+            dateOneStart.text = viewModelInfiRoc.dateOneStart
+            country.text = viewModelInfiRoc.country
+            startupCost.text = viewModelInfiRoc.startupCost
+            firstStageNumberOfEngines.text = viewModelInfiRoc.firstStageNumberOfEngines
+            firstStageBurnTimeInSeconds.text = viewModelInfiRoc.firstStageBurnTimeInSeconds
+            firstStageQuantitOfFuelInTons.text = viewModelInfiRoc.firstStageQuantitOfFuelInTons
+            secondStageNumberOfEngines.text = viewModelInfiRoc.secondStageNumberOfEngines
+            secondStageBurnTimeInSeconds.text = viewModelInfiRoc.secondStageBurnTimeInSeconds
+            secondStageQuantitOfFuelInTons.text = viewModelInfiRoc.secondStageQuantitOfFuelInTons
         }
     }
-    
+
     private var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.numberOfPages = 3

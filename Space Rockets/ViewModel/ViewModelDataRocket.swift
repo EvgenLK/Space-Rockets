@@ -9,9 +9,12 @@ import Foundation
 
 class ViewModelDataRocket {
     
-    let dataRocket = DataRocket(imageView: nil, name: "New Rocket")
-
+    let dataRocket: DataRocket
     
+    init(dataRocket: DataRocket) {
+        self.dataRocket = dataRocket
+    }
+
     var imageView: String? {
         return dataRocket.imageView
     }
