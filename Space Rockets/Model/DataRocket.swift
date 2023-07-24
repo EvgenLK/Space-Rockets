@@ -6,21 +6,22 @@
 //
 
 import Foundation
+import UIKit
 
 struct DataRocket {
-    let imageView: String?
+    var imageView: UIImage?
     let name: String
 }
 
-
+extension DataRocket {
     struct ParamRocket {
         let height: String
         let diameter: String
         let weight: String
         let leo: String
     }
-
-
+}
+extension DataRocket {
     struct InfoRocket {
         let dateOneStart: String
         let country: String
@@ -32,4 +33,4 @@ struct DataRocket {
         let secondStageQuantitOfFuelInTons: String
         let secondStageBurnTimeInSeconds: String
     }
-
+}

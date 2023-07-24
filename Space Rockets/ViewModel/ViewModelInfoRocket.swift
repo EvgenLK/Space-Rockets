@@ -9,9 +9,12 @@ import Foundation
 
 class ViewModelInfoRocket {
     
-    let infoRocket = InfoRocket(dateOneStart: "05 12 1993", country: "11111", startupCost: "1111", firstStageNumberOfEngines: "11111", firstStageQuantitOfFuelInTons: "1111", firstStageBurnTimeInSeconds: "1111", secondStageNumberOfEngines: "1111", secondStageQuantitOfFuelInTons: "11111", secondStageBurnTimeInSeconds: "11111")
+    let infoRocket:DataRocket.InfoRocket
     
-
+    init(infoRocket: DataRocket.InfoRocket) {
+        self.infoRocket = infoRocket
+    }
+    
     var dateOneStart: String {
         return infoRocket.dateOneStart
     }
@@ -47,4 +50,6 @@ class ViewModelInfoRocket {
     var secondStageBurnTimeInSeconds: String {
         return infoRocket.secondStageBurnTimeInSeconds
     }
+    
+
 }

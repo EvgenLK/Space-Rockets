@@ -6,13 +6,17 @@
 //
 
 import Foundation
+import UIKit
 
 class ViewModelDataRocket {
     
-    let dataRocket = DataRocket(imageView: nil, name: "New Rocket")
-
+    let dataRocket: DataRocket
     
-    var imageView: String? {
+    init(dataRocket: DataRocket) {
+        self.dataRocket = dataRocket
+    }
+
+    var imageView: UIImage? {
         return dataRocket.imageView
     }
     

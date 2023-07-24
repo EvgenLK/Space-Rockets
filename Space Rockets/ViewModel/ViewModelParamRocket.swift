@@ -9,7 +9,7 @@ import Foundation
 
 class ViewModelParamRocket {
     
-    private let paramRocket: ParamRocket
+    let paramRocket: DataRocket.ParamRocket
     
     var height: String {
         return paramRocket.height
@@ -27,7 +27,7 @@ class ViewModelParamRocket {
         return paramRocket.leo
     }
     
-    init(paramRocket: ParamRocket) {
+    init(paramRocket: DataRocket.ParamRocket) {
         self.paramRocket = paramRocket
     }
     
