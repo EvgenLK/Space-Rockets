@@ -14,11 +14,11 @@ class ViewModelResponseRocket {
     private var rocketParam: [DataRocket.ParamRocket] = []
     private var rocketDataData: [DataRocket] = []
     
-    func processJSONData(_ jsonData: [SpaceRockets.SpaceDatumRocket]) {
+    func processJSONData(_ jsonData: [SpaceDatumRocket]) {
         for rocketData in jsonData {
             let rocketInfoVM = DataRocket.InfoRocket(dateOneStart: "\(rocketData.firstFlight)",
                                                      country: "\(rocketData.country)",
-                                                     startupCost: "\(Double(rocketData.costPerLaunch) / Double(1_000_000))",
+                                                     startupCost: "\(rocketData.costPerLaunch)",
                                                      firstStageNumberOfEngines: "\(rocketData.firstStage.engines)",
                                                      firstStageQuantitOfFuelInTons: "\(rocketData.firstStage.fuelAmountTons)",
                                                      firstStageBurnTimeInSeconds: "\(rocketData.firstStage.burnTimeSEC ?? 0)",

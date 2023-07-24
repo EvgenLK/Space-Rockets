@@ -3,9 +3,9 @@ import SnapKit
 
 final class ViewController: UIViewController {
     
-    let viewmodelresponse = ResponseDataRocket()
-    private let viewModel = ViewModelResponseRocket()
-    let viewModelDF = ViewModelHelper()
+    let viewModelResponse = NetworkRocketResponse()
+    let viewModel = ViewModelResponseRocket()
+    let viewModelHelper = ViewModelHelper()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,11 +46,10 @@ final class ViewController: UIViewController {
         constraints()
         
         
-        viewmodelresponse.getRockets { json in
+        viewModelResponse.getDataRocketNetwork { json in
             self.viewModel.processJSONData(json as! [SpaceDatumRocket])
             self.updateUI()
         }
-        
     }
     func updateUI() {
 
@@ -61,9 +60,9 @@ final class ViewController: UIViewController {
 //        let numberOfRockets = viewModel.getNumberOfRockets()
         DispatchQueue.main.async {
             if let rocket = rocketInfo.first {
-                self.dateOneStart.text = self.viewModelDF.formatDate(dateString: rocket.dateOneStart)
+                self.dateOneStart.text = self.viewModelHelper.formatDate(dateString: rocket.dateOneStart)
                 self.country.text = rocket.country
-                self.startupCost.text = rocket.startupCost
+                self.startupCost.text = "$" + self.viewModelHelper.convertToMillions(inputNumber: "\(rocket.startupCost)") + " млн"
                 self.firstStageNumberOfEngines.text = rocket.firstStageNumberOfEngines
                 self.firstStageBurnTimeInSeconds.text = rocket.firstStageBurnTimeInSeconds
                 self.firstStageQuantitOfFuelInTons.text = rocket.firstStageQuantitOfFuelInTons

@@ -22,9 +22,12 @@ class ViewModelHelper {
         }
     }
     
-    func convertToMillions(inputNumber: Int) -> Double {
+    func convertToMillions(inputNumber: String) -> String {
         let million = 1000000
-        let result = Double(inputNumber) / Double(million)
-        return result
+        guard let number = Double(inputNumber) else {
+            return String(0.0)
+        }
+        let result = number / Double(million)
+        return String(result)
     }
 }
