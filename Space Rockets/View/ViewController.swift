@@ -3,16 +3,17 @@ import SnapKit
 
 final class ViewController: UIViewController {
     
-    let viewres = ViewModelRequestRocket()
+    let viewmodelresponse = ResponseDataRocket()
+    private let viewModel = ViewModelResponseRocket()
+    let viewModelDF = ViewModelHelper()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModelInfiRoc = ViewModelInfoRocket()
-        
         view.addSubview(scrollInfoRocket)
         scrollInfoRocket.addSubview(contentView)
         contentView.addSubview(imageRocket)
@@ -44,26 +45,53 @@ final class ViewController: UIViewController {
         blackView.addSubview(collectionView)
         constraints()
         
-        viewres.getDataRocket { result in
-            print(result)
+        
+        viewmodelresponse.getRockets { json in
+            self.viewModel.processJSONData(json as! [SpaceDatumRocket])
+            self.updateUI()
         }
+        
     }
-    
+    func updateUI() {
 
-    var viewModelInfiRoc: ViewModelInfoRocket! {
-        didSet{
-            guard let viewModelInfiRoc = viewModelInfiRoc else { return }
-            dateOneStart.text = viewModelInfiRoc.dateOneStart
-            country.text = viewModelInfiRoc.country
-            startupCost.text = viewModelInfiRoc.startupCost
-            firstStageNumberOfEngines.text = viewModelInfiRoc.firstStageNumberOfEngines
-            firstStageBurnTimeInSeconds.text = viewModelInfiRoc.firstStageBurnTimeInSeconds
-            firstStageQuantitOfFuelInTons.text = viewModelInfiRoc.firstStageQuantitOfFuelInTons
-            secondStageNumberOfEngines.text = viewModelInfiRoc.secondStageNumberOfEngines
-            secondStageBurnTimeInSeconds.text = viewModelInfiRoc.secondStageBurnTimeInSeconds
-            secondStageQuantitOfFuelInTons.text = viewModelInfiRoc.secondStageQuantitOfFuelInTons
+        let rocketInfo = viewModel.getRocketDataInfo()
+//        let rocketParam = viewModel.getRocketDataParam()
+        let rocketData = viewModel.getRocketDataData()
+
+//        let numberOfRockets = viewModel.getNumberOfRockets()
+        DispatchQueue.main.async {
+            if let rocket = rocketInfo.first {
+                self.dateOneStart.text = self.viewModelDF.formatDate(dateString: rocket.dateOneStart)
+                self.country.text = rocket.country
+                self.startupCost.text = rocket.startupCost
+                self.firstStageNumberOfEngines.text = rocket.firstStageNumberOfEngines
+                self.firstStageBurnTimeInSeconds.text = rocket.firstStageBurnTimeInSeconds
+                self.firstStageQuantitOfFuelInTons.text = rocket.firstStageQuantitOfFuelInTons
+                self.secondStageNumberOfEngines.text = rocket.secondStageNumberOfEngines
+                self.secondStageBurnTimeInSeconds.text = rocket.secondStageBurnTimeInSeconds
+                self.secondStageQuantitOfFuelInTons.text = rocket.secondStageQuantitOfFuelInTons
+            }
+            
+            if let rocket = rocketData.first {
+                self.labelName.text = rocket.name                
+            }
         }
     }
+
+//    var viewModelInfoRoc: ViewModelInfoRocket? {
+//        didSet{
+//            guard let viewModelInfoRoc = viewModelInfoRoc else { return }
+//            dateOneStart.text = viewModelInfoRoc.dateOneStart
+//            country.text = viewModelInfoRoc.country
+//            startupCost.text = viewModelInfoRoc.startupCost
+//            firstStageNumberOfEngines.text = viewModelInfoRoc.firstStageNumberOfEngines
+//            firstStageBurnTimeInSeconds.text = viewModelInfoRoc.firstStageBurnTimeInSeconds
+//            firstStageQuantitOfFuelInTons.text = viewModelInfoRoc.firstStageQuantitOfFuelInTons
+//            secondStageNumberOfEngines.text = viewModelInfoRoc.secondStageNumberOfEngines
+//            secondStageBurnTimeInSeconds.text = viewModelInfoRoc.secondStageBurnTimeInSeconds
+//            secondStageQuantitOfFuelInTons.text = viewModelInfoRoc.secondStageQuantitOfFuelInTons
+//        }
+//    }
 
     private var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
@@ -127,7 +155,7 @@ final class ViewController: UIViewController {
         labelName.font = UIFont(name: "Lab Grotesque", size: 24)
         labelName.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         labelName.textColor = .white
-        labelName.text = "Falcon Heavy"
+        labelName.text = ""
         return labelName
     }()
     
@@ -158,7 +186,7 @@ final class ViewController: UIViewController {
         dateOneStart.font = UIFont(name: "Lab Grotesque", size: 16)
         dateOneStart.textColor = .white
         dateOneStart.textAlignment = .center
-        dateOneStart.text = "7 февраля 2023"
+        dateOneStart.text = ""
         return dateOneStart
     }()
     
@@ -176,8 +204,9 @@ final class ViewController: UIViewController {
         country.translatesAutoresizingMaskIntoConstraints = false
         country.font = UIFont(name: "Lab Grotesque", size: 16)
         country.textColor = .white
-        country.text = "США"
-        country.textAlignment = .center
+        country.text = ""
+        country.textAlignment = .right
+        
         return country
     }()
     
@@ -195,7 +224,7 @@ final class ViewController: UIViewController {
         startupCost.translatesAutoresizingMaskIntoConstraints = false
         startupCost.font = UIFont(name: "Lab Grotesque", size: 16)
         startupCost.textColor = .white
-        startupCost.text = "$98 млн."
+        startupCost.text = ""
         startupCost.textAlignment = .center
         return startupCost
     }()
@@ -224,7 +253,7 @@ final class ViewController: UIViewController {
         firstStageNumberOfEngines.translatesAutoresizingMaskIntoConstraints = false
         firstStageNumberOfEngines.font = UIFont(name: "Lab Grotesque", size: 16)
         firstStageNumberOfEngines.textColor = .white
-        firstStageNumberOfEngines.text = "28"
+        firstStageNumberOfEngines.text = ""
         firstStageNumberOfEngines.textAlignment = .center
         return firstStageNumberOfEngines
     }()
@@ -243,7 +272,7 @@ final class ViewController: UIViewController {
         firstStageQuantitOfFuelInTons.translatesAutoresizingMaskIntoConstraints = false
         firstStageQuantitOfFuelInTons.font = UIFont(name: "Lab Grotesque", size: 16)
         firstStageQuantitOfFuelInTons.textColor = .white
-        firstStageQuantitOfFuelInTons.text = "284 №%: "
+        firstStageQuantitOfFuelInTons.text = ""
         firstStageQuantitOfFuelInTons.textAlignment = .center
         return firstStageQuantitOfFuelInTons
     }()
@@ -262,7 +291,7 @@ final class ViewController: UIViewController {
         firstStageBurnTimeInSeconds.translatesAutoresizingMaskIntoConstraints = false
         firstStageBurnTimeInSeconds.font = UIFont(name: "Lab Grotesque", size: 16)
         firstStageBurnTimeInSeconds.textColor = .white
-        firstStageBurnTimeInSeconds.text = "594 sec"
+        firstStageBurnTimeInSeconds.text = ""
         firstStageBurnTimeInSeconds.textAlignment = .center
         return firstStageBurnTimeInSeconds
     }()
@@ -291,7 +320,7 @@ final class ViewController: UIViewController {
         StageNumberOfEngines.translatesAutoresizingMaskIntoConstraints = false
         StageNumberOfEngines.font = UIFont(name: "Lab Grotesque", size: 16)
         StageNumberOfEngines.textColor = .white
-        StageNumberOfEngines.text = "20"
+        StageNumberOfEngines.text = ""
         StageNumberOfEngines.textAlignment = .center
         return StageNumberOfEngines
     }()
@@ -310,7 +339,7 @@ final class ViewController: UIViewController {
         StageQuantitOfFuelInTons.translatesAutoresizingMaskIntoConstraints = false
         StageQuantitOfFuelInTons.font = UIFont(name: "Lab Grotesque", size: 16)
         StageQuantitOfFuelInTons.textColor = .white
-        StageQuantitOfFuelInTons.text = "350 №%: "
+        StageQuantitOfFuelInTons.text = ""
         StageQuantitOfFuelInTons.textAlignment = .center
         return StageQuantitOfFuelInTons
     }()
@@ -329,7 +358,7 @@ final class ViewController: UIViewController {
         StageBurnTimeInSeconds.translatesAutoresizingMaskIntoConstraints = false
         StageBurnTimeInSeconds.font = UIFont(name: "Lab Grotesque", size: 16)
         StageBurnTimeInSeconds.textColor = .white
-        StageBurnTimeInSeconds.text = "300 sec"
+        StageBurnTimeInSeconds.text = ""
         StageBurnTimeInSeconds.textAlignment = .center
         return StageBurnTimeInSeconds
     }()
@@ -412,7 +441,7 @@ final class ViewController: UIViewController {
         country.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(288)
             make.right.equalToSuperview().offset(32)
-            make.left.equalToSuperview().offset(233)
+//            make.left.equalToSuperview().offset(233)
         }
         
         labelStartupCost.snp.makeConstraints { make in

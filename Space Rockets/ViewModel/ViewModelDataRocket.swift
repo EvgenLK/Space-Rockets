@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ViewModelDataRocket {
     
@@ -15,7 +16,7 @@ class ViewModelDataRocket {
         self.dataRocket = dataRocket
     }
 
-    var imageView: String? {
+    var imageView: UIImage? {
         return dataRocket.imageView
     }
     

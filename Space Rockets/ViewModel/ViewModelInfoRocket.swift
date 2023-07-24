@@ -9,7 +9,11 @@ import Foundation
 
 class ViewModelInfoRocket {
     
-    let infoRocket  = DataRocket.InfoRocket(dateOneStart: "222", country: "222", startupCost: "222", firstStageNumberOfEngines: "222", firstStageQuantitOfFuelInTons: "222", firstStageBurnTimeInSeconds: "222", secondStageNumberOfEngines: "222", secondStageQuantitOfFuelInTons: "222", secondStageBurnTimeInSeconds: "222")
+    let infoRocket:DataRocket.InfoRocket
+    
+    init(infoRocket: DataRocket.InfoRocket) {
+        self.infoRocket = infoRocket
+    }
     
     var dateOneStart: String {
         return infoRocket.dateOneStart
