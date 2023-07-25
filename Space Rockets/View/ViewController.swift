@@ -64,11 +64,11 @@ final class ViewController: UIViewController {
                 self.country.text = rocket.country
                 self.startupCost.text = "$" + self.viewModelHelper.convertToMillions(inputNumber: "\(rocket.startupCost)") + " млн"
                 self.firstStageNumberOfEngines.text = rocket.firstStageNumberOfEngines
-                self.firstStageBurnTimeInSeconds.text = rocket.firstStageBurnTimeInSeconds
-                self.firstStageQuantitOfFuelInTons.text = rocket.firstStageQuantitOfFuelInTons
+                self.firstStageBurnTimeInSeconds.text = "\(rocket.firstStageBurnTimeInSeconds) sec"
+                self.firstStageQuantitOfFuelInTons.text = "\(rocket.firstStageQuantitOfFuelInTons) ton."
                 self.secondStageNumberOfEngines.text = rocket.secondStageNumberOfEngines
-                self.secondStageBurnTimeInSeconds.text = rocket.secondStageBurnTimeInSeconds
-                self.secondStageQuantitOfFuelInTons.text = rocket.secondStageQuantitOfFuelInTons
+                self.secondStageBurnTimeInSeconds.text = "\(rocket.secondStageBurnTimeInSeconds) sec"
+                self.secondStageQuantitOfFuelInTons.text = "\(rocket.secondStageQuantitOfFuelInTons) ton."
             }
             
             if let rocket = rocketData.first {
