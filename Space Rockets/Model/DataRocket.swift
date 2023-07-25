@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct DataRocket {
-    var imageView: UIImage?
+    var imageView: String?
     let name: String
 }
 
