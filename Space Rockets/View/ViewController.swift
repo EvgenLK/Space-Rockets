@@ -72,25 +72,11 @@ final class ViewController: UIViewController {
             }
             
             if let rocket = rocketData.first {
-                self.labelName.text = rocket.name                
+                self.labelName.text = rocket.name
+                self.viewModelHelper.loadImage(from: rocket.imageView ?? "rocket", into: self.imageRocket)
             }
         }
     }
-
-//    var viewModelInfoRoc: ViewModelInfoRocket? {
-//        didSet{
-//            guard let viewModelInfoRoc = viewModelInfoRoc else { return }
-//            dateOneStart.text = viewModelInfoRoc.dateOneStart
-//            country.text = viewModelInfoRoc.country
-//            startupCost.text = viewModelInfoRoc.startupCost
-//            firstStageNumberOfEngines.text = viewModelInfoRoc.firstStageNumberOfEngines
-//            firstStageBurnTimeInSeconds.text = viewModelInfoRoc.firstStageBurnTimeInSeconds
-//            firstStageQuantitOfFuelInTons.text = viewModelInfoRoc.firstStageQuantitOfFuelInTons
-//            secondStageNumberOfEngines.text = viewModelInfoRoc.secondStageNumberOfEngines
-//            secondStageBurnTimeInSeconds.text = viewModelInfoRoc.secondStageBurnTimeInSeconds
-//            secondStageQuantitOfFuelInTons.text = viewModelInfoRoc.secondStageQuantitOfFuelInTons
-//        }
-//    }
 
     private var pageControl: UIPageControl = {
         let pageControl = UIPageControl()

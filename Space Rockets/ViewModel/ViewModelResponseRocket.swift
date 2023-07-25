@@ -33,7 +33,7 @@ class ViewModelResponseRocket {
                                                        leo: "\(rocketData.engines.thrustSeaLevel.kN)")
             rocketParam.append(rocketParamVM)
             
-            let rocketDataVM = DataRocket(name: rocketData.name)
+            let rocketDataVM = DataRocket(imageView: rocketData.flickrImages[1], name: rocketData.name) // нужно доделать рандомный выбор
             rocketDataData.append(rocketDataVM)
         }
     }

@@ -16,7 +16,7 @@ class ViewModelDataRocket {
         self.dataRocket = dataRocket
     }
 
-    var imageView: UIImage? {
+    var imageView: String? {
         return dataRocket.imageView
     }
     
