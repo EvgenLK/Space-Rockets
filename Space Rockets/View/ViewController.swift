@@ -1,15 +1,21 @@
 import UIKit
 import SnapKit
 
-final class ViewController: UIViewController {
+final class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let viewModelResponse = NetworkRocketResponse()
     let viewModel = ViewModelResponseRocket()
+    let viewModelparametrRocket = ViewModelCollectionView()
     let viewModelHelper = ViewModelHelper()
+    var viewModelProtocol: CollectionViewModel?
+    var viewRocketParamData = [DataRocket.ParamRocket]()
+
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        collectionView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -44,20 +50,31 @@ final class ViewController: UIViewController {
         view.addSubview(pageControl)
         blackView.addSubview(collectionView)
         constraints()
-        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         
         viewModelResponse.getDataRocketNetwork { json in
-            self.viewModel.processJSONData(json as! [SpaceDatumRocket])
+            self.viewModel.processJSONData()
             self.updateUI()
+            self.viewModelparametrRocket.processJSONData()
+            self.updateCell()
         }
     }
+    
+    func updateCell() {
+        let rocketParametr = viewModelparametrRocket.getRocketDataParametr()
+        DispatchQueue.main.async {
+            self.viewRocketParamData = [rocketParametr[0]]
+            self.collectionView.reloadData()
+        }
+    }
+    
     func updateUI() {
-
+        
         let rocketInfo = viewModel.getRocketDataInfo()
-//        let rocketParam = viewModel.getRocketDataParam()
         let rocketData = viewModel.getRocketDataData()
-
-//        let numberOfRockets = viewModel.getNumberOfRockets()
+        
         DispatchQueue.main.async {
             if let rocket = rocketInfo.first {
                 self.dateOneStart.text = self.viewModelHelper.formatDate(dateString: rocket.dateOneStart)
@@ -75,6 +92,8 @@ final class ViewController: UIViewController {
                 self.labelName.text = rocket.name
                 self.viewModelHelper.loadImage(from: rocket.imageView ?? "rocket", into: self.imageRocket)
             }
+            
+
         }
     }
 
@@ -113,9 +132,9 @@ final class ViewController: UIViewController {
         return imageRocket
     }()
     
-    private let settingButtonIcon: UIButton = {
+    private lazy var settingButtonIcon: UIButton = {
         let settingIcon = UIButton()
-        settingIcon.translatesAutoresizingMaskIntoConstraints = false
+        settingIcon.translatesAutoresizingMaskIntoConstraints = false // разобраться потом
         settingIcon.setImage(UIImage(named: "Setting"), for: .normal)
         settingIcon.addTarget(self, action: #selector(viewSettingParamRocket), for: .touchUpInside)
         return settingIcon
@@ -149,10 +168,9 @@ final class ViewController: UIViewController {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         layout.scrollDirection = .horizontal
-        cv.layer.opacity = 0.6
-        cv.layer.cornerRadius = 20
         cv.showsHorizontalScrollIndicator = false
-        cv.backgroundColor = .white
+        cv.backgroundColor = .black
+        
         return cv
     }()
     
