@@ -9,7 +9,7 @@ import Foundation
 
 class NetworkRocketResponse {
     
-    public func getDataRocketNetwork(completion: @escaping (Any) -> Void) {
+    public func getDataRocketNetwork(completion: @escaping ([SpaceDatumRocket]) -> Void) {
         guard let url = URL(string: "https://api.spacexdata.com/v4/rockets") else { return }
                                 
         let session = URLSession.shared

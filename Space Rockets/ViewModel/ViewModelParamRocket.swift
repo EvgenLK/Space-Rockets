@@ -31,4 +31,10 @@ class ViewModelParamRocket {
         self.paramRocket = paramRocket
     }
     
+    func convertToSpaceDatumRocket() -> SpaceDatumRocket? {
+           // Выполните преобразование и верните объект типа SpaceDatumRocket
+           // ...
+           return nil // Верните преобразованный объект или nil, если преобразование невозможно
+       }
+    
 }

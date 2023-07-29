@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ViewModelCell {
+class ViewModelCellList {
     
     let customCellData: CustomCellModel
     

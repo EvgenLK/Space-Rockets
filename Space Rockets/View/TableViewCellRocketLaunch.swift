@@ -66,7 +66,7 @@ class TableViewCellRocketLaunch: UITableViewCell {
         }
     }
     func congifure(with rocket: CustomCellModel) {
-        nameRocketLabel.text = rocket.name
+        nameRocketLabel.text = "new"
         dateLaunchRocketLabel.text = rocket.date
         imageLaunchRocketLabel.image = UIImage(named: rocket.image)
     }

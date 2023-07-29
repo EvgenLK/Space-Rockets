@@ -9,13 +9,25 @@ import Foundation
 import UIKit
 
 class ViewModelResponseRocket {
-
-    private var rocketInfo: [DataRocket.InfoRocket] = []
-    private var rocketParam: [DataRocket.ParamRocket] = []
-    private var rocketDataData: [DataRocket] = []
     
-    func processJSONData(_ jsonData: [SpaceDatumRocket]) {
-        for rocketData in jsonData {
+    private var rocketInfo: [DataRocket.InfoRocket] = []
+    private var rocketDataData: [DataRocket] = []
+    private var viewModelResponseRocket = NetworkRocketResponse()
+    var dataRocket = [SpaceDatumRocket]()
+    
+    
+    init() {
+        fetchRocketData()
+    }
+
+    private func fetchRocketData() {
+        viewModelResponseRocket.getDataRocketNetwork { json in
+            self.dataRocket = json
+        }
+    }
+    
+    func processJSONData() {
+        for rocketData in self.dataRocket {
             let rocketInfoVM = DataRocket.InfoRocket(dateOneStart: "\(rocketData.firstFlight)",
                                                      country: "\(rocketData.country)",
                                                      startupCost: "\(rocketData.costPerLaunch)",
@@ -26,13 +38,7 @@ class ViewModelResponseRocket {
                                                      secondStageQuantitOfFuelInTons: "\(rocketData.secondStage.fuelAmountTons)",
                                                      secondStageBurnTimeInSeconds: "\(rocketData.secondStage.burnTimeSEC ?? 0)")
             rocketInfo.append(rocketInfoVM)
-            
-            let rocketParamVM = DataRocket.ParamRocket(height: "\(rocketData.height.meters ?? 0)",
-                                                       diameter: "\(rocketData.diameter.meters ?? 0)",
-                                                       weight: "\(rocketData.mass.kg)",
-                                                       leo: "\(rocketData.engines.thrustSeaLevel.kN)")
-            rocketParam.append(rocketParamVM)
-            
+               
             let rocketDataVM = DataRocket(imageView: rocketData.flickrImages[1], name: rocketData.name) // нужно доделать рандомный выбор
             rocketDataData.append(rocketDataVM)
         }
@@ -41,9 +47,7 @@ class ViewModelResponseRocket {
     func getRocketDataInfo() -> [DataRocket.InfoRocket] {
         return rocketInfo
     }
-    func getRocketDataParam() -> [DataRocket.ParamRocket] {
-        return rocketParam
-    }
+
     func getRocketDataData() -> [DataRocket] {
         return rocketDataData
     }
@@ -55,9 +59,6 @@ class ViewModelResponseRocket {
         return rocketDataData[index]
     }
 
-    func getNumberOfRockets() -> Int {
-        return rocketDataData.count
-    }
 }
     
 
