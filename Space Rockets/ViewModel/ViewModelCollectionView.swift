@@ -14,6 +14,7 @@ class ViewModelCollectionView: CollectionViewModel {
     let viewModelResponse = NetworkRocketResponse()
     private var rocketParam = [SpaceDatumRocket]()
     var rocketParamData = [DataRocket.ParamRocket]()
+    let numberRocket = 0
 
     init() {
         fetchRocketData()

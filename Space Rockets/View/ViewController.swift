@@ -9,6 +9,8 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
     let viewModelHelper = ViewModelHelper()
     var viewModelProtocol: CollectionViewModel?
     var viewRocketParamData = [DataRocket.ParamRocket]()
+    var dictionaryRocket: [String: String] = [:]
+    var ArrayRocketParam = ["Высота","Диаметр","Масса","Нагрузка"]
 
 
     

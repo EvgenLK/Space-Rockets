@@ -11,6 +11,7 @@ import UIKit
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
         let numberOfItemsInRow: CGFloat = 3.5 // Количество элементов в одном ряду (может быть изменено по вашему выбору)
@@ -27,22 +28,26 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModelparametrRocket.numberOfRows()
+        return !viewRocketParamData.isEmpty ? 4 : 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCollectionViewCell
         
-        
-        
-        for rocket in viewRocketParamData {
+        if let rocket = viewRocketParamData.first {
 
-            cell.configure(with: CustomCellParamRocket(number: "\(rocket.diameter)", parametr: "\(rocket.height)"))
+            dictionaryRocket["Высота"] = rocket.height
+            dictionaryRocket["Диаметр"] = rocket.diameter
+            dictionaryRocket["Масса"] = rocket.weight
+            dictionaryRocket["Нагрузка"] = rocket.leo
+
+            let key = ArrayRocketParam[0]
+            
+            if let value = dictionaryRocket[key] {
+                cell.configure(with: CustomCellParamRocket(number: value, parametr: key))
+            }
         }
-        
-//        let rocket = parametrRocket[indexPath.row]
-//        cell.configure(with: CustomCellParamRocket(number: "\(rocket.diameter)", parametr: "\(rocket.height)"))
-
+        ArrayRocketParam.remove(at: 0)
         
         return cell
     }
