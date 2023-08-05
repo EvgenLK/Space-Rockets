@@ -8,14 +8,12 @@
 import Foundation
 import UIKit
 
-
 extension ViewController: UICollectionViewDelegateFlowLayout {
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
-        let numberOfItemsInRow: CGFloat = 3.5 // Количество элементов в одном ряду (может быть изменено по вашему выбору)
-        let spacingBetweenItems: CGFloat = 12 // Расстояние между элементами (в данном случае - 12 пикселей)
+        let numberOfItemsInRow: CGFloat = 3.5
+        let spacingBetweenItems: CGFloat = 12 
 
         let totalSpacing = (numberOfItemsInRow - 1) * spacingBetweenItems
         let itemWidth = (collectionViewWidth - totalSpacing) / numberOfItemsInRow
@@ -41,14 +39,11 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             dictionaryRocket["Масса"] = rocket.weight
             dictionaryRocket["Нагрузка"] = rocket.leo
 
-            let key = ArrayRocketParam[0]
-            
+            let key = ArrayRocketParam[indexPath.row]
             if let value = dictionaryRocket[key] {
                 cell.configure(with: CustomCellParamRocket(number: value, parametr: key))
             }
         }
-        ArrayRocketParam.remove(at: 0)
-        
         return cell
     }
 

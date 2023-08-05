@@ -17,7 +17,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        collectionView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -55,7 +54,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        
+        collectionView.reloadData()
         viewModelResponse.getDataRocketNetwork { json in
             self.viewModel.processJSONData()
             self.updateUI()
@@ -94,8 +93,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
                 self.labelName.text = rocket.name
                 self.viewModelHelper.loadImage(from: rocket.imageView ?? "rocket", into: self.imageRocket)
             }
-            
-
         }
     }
 
@@ -134,19 +131,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         return imageRocket
     }()
     
-    private lazy var settingButtonIcon: UIButton = {
-        let settingIcon = UIButton()
-        settingIcon.translatesAutoresizingMaskIntoConstraints = false // разобраться потом
-        settingIcon.setImage(UIImage(named: "Setting"), for: .normal)
-        settingIcon.addTarget(self, action: #selector(viewSettingParamRocket), for: .touchUpInside)
-        return settingIcon
-    }()
-    
-    @objc func viewSettingParamRocket() {
-        let settingParamRocket = SettingViewParamRocketController()
-        present(settingParamRocket, animated: true)
-    }
-    
     private let blackView: UIView = {
         let blackView = UIView()
         blackView.translatesAutoresizingMaskIntoConstraints = false
@@ -154,6 +138,19 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         blackView.layer.cornerRadius = 30
         return blackView
     }()
+    
+    private let settingButtonIcon: UIButton = {
+        let settingButtonIcon = UIButton()
+        settingButtonIcon.translatesAutoresizingMaskIntoConstraints = false // разобраться потом
+        settingButtonIcon.setImage(UIImage(named: "setting"), for: .normal)
+        settingButtonIcon.addTarget(self, action: #selector(viewSettingParamRocket), for: .touchUpInside)
+        return settingButtonIcon
+    }()
+    
+    @objc func viewSettingParamRocket() {
+        let settingParamRocket = SettingViewParamRocketController()
+        present(settingParamRocket, animated: true)
+    }
     
     private let labelName: UILabel = {
         let labelName = UILabel()

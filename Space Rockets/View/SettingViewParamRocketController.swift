@@ -174,7 +174,5 @@ class SettingViewParamRocketController: UIViewController {
             make.width.equalTo(115)
             make.height.equalTo(40)
         }
-        
     }
-
 }

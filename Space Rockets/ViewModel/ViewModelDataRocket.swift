@@ -1,27 +1,27 @@
+////
+////  ViewModel.swift
+////  Space Rockets
+////
+////  Created by Evgenii Kutasov on 10.07.2023.
+////
 //
-//  ViewModel.swift
-//  Space Rockets
+//import Foundation
+//import UIKit
 //
-//  Created by Evgenii Kutasov on 10.07.2023.
+//class ViewModelDataRocket {
+//    
+//    let dataRocket: DataRocket
+//    
+//    init(dataRocket: DataRocket) {
+//        self.dataRocket = dataRocket
+//    }
 //
-
-import Foundation
-import UIKit
-
-class ViewModelDataRocket {
-    
-    let dataRocket: DataRocket
-    
-    init(dataRocket: DataRocket) {
-        self.dataRocket = dataRocket
-    }
-
-    var imageView: String? {
-        return dataRocket.imageView
-    }
-    
-    var name: String {
-        return dataRocket.name
-    }
-
-}
+//    var imageView: String? {
+//        return dataRocket.imageView
+//    }
+//    
+//    var name: String {
+//        return dataRocket.name
+//    }
+//
+//}
