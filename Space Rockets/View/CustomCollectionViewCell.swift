@@ -24,7 +24,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
     
     func setupConstraintsCell() {
-
         contentView.snp.makeConstraints { make in
             make.width.height.equalTo(96)
         }
@@ -34,6 +33,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let myLabelNumber = UILabel()
         myLabelNumber.translatesAutoresizingMaskIntoConstraints = false
         myLabelNumber.textColor = .white
+        myLabelNumber.textAlignment = .center
         return myLabelNumber
     }()
     
@@ -41,6 +41,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let myLabelNameParametr = UILabel()
         myLabelNameParametr.translatesAutoresizingMaskIntoConstraints = false
         myLabelNameParametr.textColor = .gray
+        myLabelNameParametr.textAlignment = .center
         return myLabelNameParametr
     }()
     
@@ -49,15 +50,14 @@ class CustomCollectionViewCell: UICollectionViewCell {
         myLabelNumber.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(28)
             make.left.equalToSuperview().offset(8)
-            make.right.equalToSuperview().offset(8)
+            make.right.equalToSuperview().offset(-8)
         }
         
         myLabelNameParametr.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(52)
             make.left.equalToSuperview().offset(8)
-            make.right.equalToSuperview().offset(8)
+            make.right.equalToSuperview().offset(-8)
         }
-        
     }
     func configure(with parametr: CustomCellParamRocket) {
         myLabelNumber.text = parametr.number
