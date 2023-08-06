@@ -21,6 +21,22 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        constraints()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.reloadData()
+        viewModelResponse.getDataRocketNetwork { json in
+            self.viewModel.processJSONData()
+            self.updateUI()
+            self.viewModelparametrRocket.processJSONData()
+            self.updateCell()
+        }
+    }
+    
+    func setupView() {
+        
         view.addSubview(scrollInfoRocket)
         scrollInfoRocket.addSubview(contentView)
         contentView.addSubview(imageRocket)
@@ -50,17 +66,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         blackView.addSubview(buttonToViewLaunches)
         view.addSubview(pageControl)
         blackView.addSubview(collectionView)
-        constraints()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.reloadData()
-        viewModelResponse.getDataRocketNetwork { json in
-            self.viewModel.processJSONData()
-            self.updateUI()
-            self.viewModelparametrRocket.processJSONData()
-            self.updateCell()
-        }
+        
     }
     
     func updateCell() {
@@ -380,7 +386,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
    @objc func viewListSpaceRocket() {
         let listSpaceRocket = TableListSpaceRocketController()
        navigationController?.pushViewController(listSpaceRocket, animated: true)
-
     }
     
     func constraints() {
