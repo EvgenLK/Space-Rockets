@@ -23,6 +23,19 @@ class ViewModelHelper {
         }
     }
     
+    func formatDateLaunches(_ dateString: String) -> String {
+        let dateFormatterInput = DateFormatter()
+        dateFormatterInput.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        if let date = dateFormatterInput.date(from: dateString) {
+            let dateFormatterOutput = DateFormatter()
+            dateFormatterOutput.locale = Locale(identifier: "ru_RU")
+            dateFormatterOutput.dateFormat = "d MMMM, yyyy"
+            return dateFormatterOutput.string(from: date)
+        } else {
+            return "Ошибка: Некорректный формат даты"
+        }
+    }
+    
     func convertToMillions(inputNumber: String) -> String {
         let million = 1000000
         guard let number = Double(inputNumber) else {

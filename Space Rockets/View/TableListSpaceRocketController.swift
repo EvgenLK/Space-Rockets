@@ -9,15 +9,21 @@ import UIKit
 
 class TableListSpaceRocketController: UITableViewController {
     
-    private var viewModel: ViewModelTypeLaunches?
     var viewModelLaunchesList: ViewModelLaunchesList?
     var launchesList =  [LaunchesModel]()
+    var viewHelper = ViewModelHelper()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModelLaunchesList = ViewModelLaunchesList()
         tableView.register(TableViewCellRocketLaunch.self, forCellReuseIdentifier: "cell")
-        viewModelLaunchesList?.launchesListRocket
+        viewModelLaunchesList?.responseLaunchesList { launchesList in
+            DispatchQueue.main.async {
+                self.launchesList = launchesList as! [LaunchesModel]
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,10 +32,10 @@ class TableListSpaceRocketController: UITableViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationItem.title = "Rocket"
-    }
-    
-    
+        tableView.reloadData()
 
+
+    }
     
     // Mark: setup Table view and color
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -48,23 +54,21 @@ class TableListSpaceRocketController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModelLaunchesList?.numberOfRows() ?? 0
+        return launchesList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellRocketLaunch
-   
         
-        guard let launchesList = viewModelLaunchesList?.getLaunches() else { return cell }
+        let launch = launchesList[indexPath.row]
+        cell.congifure(with: CustomCellModel(name: launch.name, date: viewHelper.formatDateLaunches(launch.staticFireDateUTC)  , image: "\(launch.success)"))
         
-        for item in launchesList {
-            cell.congifure(with: CustomCellModel(name: item.name, date: item.staticFireDateUTC, image: "\(item.success)"))
-        }
         
         cell.selectionStyle = .none
         cell.isUserInteractionEnabled = false
         
         return cell
     }
+
 }

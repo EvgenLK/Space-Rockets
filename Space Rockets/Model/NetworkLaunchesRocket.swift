@@ -17,7 +17,7 @@ class NetworkLaunchesRocket {
             guard let data = data else { return }
                         
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [] )
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
                 DispatchQueue.main.async {
                     completion(json)
                 }
