@@ -11,6 +11,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
     var viewRocketParamData = [DataRocket.ParamRocket]()
     var dictionaryRocket: [String: String] = [:]
     var ArrayRocketParam = ["Высота","Диаметр","Масса","Нагрузка"]
+    var test = ViewModelLaunchesList()
 
 
     
