@@ -14,7 +14,6 @@
 		9B5E06422A81B33B00CF258D /* successLaunches.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5E06412A81B33B00CF258D /* successLaunches.png */; };
 		9B5E06452A81B3C900CF258D /* failedLaunches.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B5E06442A81B3C900CF258D /* failedLaunches.jpg */; };
 		9B5E06472A81B42500CF258D /* Setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5E06462A81B42500CF258D /* Setting.png */; };
-		9B5E06492A81E6E100CF258D /* CustomViewRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E06482A81E6E100CF258D /* CustomViewRocket.swift */; };
 		9B60A67A2A6571AB0053F31D /* TableListSpaceRocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60A6792A6571AB0053F31D /* TableListSpaceRocketController.swift */; };
 		9B6671192A6FE44B00F8EA60 /* CustomCellParamRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6671182A6FE44B00F8EA60 /* CustomCellParamRocket.swift */; };
 		9B66711D2A6FEDF300F8EA60 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B66711C2A6FEDF300F8EA60 /* CustomCollectionViewCell.swift */; };
@@ -23,6 +22,7 @@
 		9B68454D2A6899FF001EC6C2 /* SpaceDatumRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68454C2A6899FF001EC6C2 /* SpaceDatumRocket.swift */; };
 		9B6C0D7C2A5CB92200F27F36 /* DataRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C0D7B2A5CB92200F27F36 /* DataRocket.swift */; };
 		9B6DEB852A714891009E3E36 /* ExtansionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DEB842A714891009E3E36 /* ExtansionCollectionView.swift */; };
+		9B700A9E2A8254B200D4ABA4 /* CustomViewRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B700A9D2A8254B200D4ABA4 /* CustomViewRocket.swift */; };
 		9B73A55E2A67FDE40036D1C1 /* TableViewCellRocketLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73A55D2A67FDE40036D1C1 /* TableViewCellRocketLaunch.swift */; };
 		9B73A5622A680C8D0036D1C1 /* CustomCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73A5612A680C8D0036D1C1 /* CustomCellModel.swift */; };
 		9B7629A92A5C1989005E3C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7629A82A5C1989005E3C72 /* AppDelegate.swift */; };
@@ -47,7 +47,6 @@
 		9B5E06412A81B33B00CF258D /* successLaunches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = successLaunches.png; sourceTree = "<group>"; };
 		9B5E06442A81B3C900CF258D /* failedLaunches.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = failedLaunches.jpg; sourceTree = "<group>"; };
 		9B5E06462A81B42500CF258D /* Setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting.png; sourceTree = "<group>"; };
-		9B5E06482A81E6E100CF258D /* CustomViewRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRocket.swift; sourceTree = "<group>"; };
 		9B60A6792A6571AB0053F31D /* TableListSpaceRocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListSpaceRocketController.swift; sourceTree = "<group>"; };
 		9B6671182A6FE44B00F8EA60 /* CustomCellParamRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellParamRocket.swift; sourceTree = "<group>"; };
 		9B66711C2A6FEDF300F8EA60 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		9B68454C2A6899FF001EC6C2 /* SpaceDatumRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceDatumRocket.swift; sourceTree = "<group>"; };
 		9B6C0D7B2A5CB92200F27F36 /* DataRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRocket.swift; sourceTree = "<group>"; };
 		9B6DEB842A714891009E3E36 /* ExtansionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtansionCollectionView.swift; sourceTree = "<group>"; };
+		9B700A9D2A8254B200D4ABA4 /* CustomViewRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRocket.swift; sourceTree = "<group>"; };
 		9B73A55D2A67FDE40036D1C1 /* TableViewCellRocketLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellRocketLaunch.swift; sourceTree = "<group>"; };
 		9B73A5612A680C8D0036D1C1 /* CustomCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellModel.swift; sourceTree = "<group>"; };
 		9B7629A52A5C1989005E3C72 /* SpaceRockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceRockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,7 +150,7 @@
 				9B73A55D2A67FDE40036D1C1 /* TableViewCellRocketLaunch.swift */,
 				9B66711C2A6FEDF300F8EA60 /* CustomCollectionViewCell.swift */,
 				9B6DEB842A714891009E3E36 /* ExtansionCollectionView.swift */,
-				9B5E06482A81E6E100CF258D /* CustomViewRocket.swift */,
+				9B700A9D2A8254B200D4ABA4 /* CustomViewRocket.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,10 +281,10 @@
 				9B7629AB2A5C1989005E3C72 /* SceneDelegate.swift in Sources */,
 				9B6DEB852A714891009E3E36 /* ExtansionCollectionView.swift in Sources */,
 				9B79DB022A7E7EC100E80103 /* LaunchesModel.swift in Sources */,
-				9B5E06492A81E6E100CF258D /* CustomViewRocket.swift in Sources */,
 				9B6671192A6FE44B00F8EA60 /* CustomCellParamRocket.swift in Sources */,
 				9B79DB042A7E8E2F00E80103 /* ViewModelLaunchesList.swift in Sources */,
 				9B73A55E2A67FDE40036D1C1 /* TableViewCellRocketLaunch.swift in Sources */,
+				9B700A9E2A8254B200D4ABA4 /* CustomViewRocket.swift in Sources */,
 				9B60A67A2A6571AB0053F31D /* TableListSpaceRocketController.swift in Sources */,
 				9B73A5622A680C8D0036D1C1 /* CustomCellModel.swift in Sources */,
 				9B44052B2A65F4A400817714 /* SettingViewParamRocketController.swift in Sources */,

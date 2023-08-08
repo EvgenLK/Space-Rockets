@@ -3,7 +3,7 @@ import SnapKit
 
 final class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    let customViewRocket = CustomViewRocket()
+    let customViewRocket = CustomViewRosket()
     let viewModelResponse = NetworkRocketResponse()
     let viewModel = ViewModelResponseRocket()
     let viewModelparametrRocket = ViewModelCollectionView()
@@ -68,6 +68,4 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
             }
         }
     }
-
-    
 }
