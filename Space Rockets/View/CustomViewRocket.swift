@@ -13,6 +13,7 @@ import SnapKit
 class CustomViewRosket: UIView, UICollectionViewDelegate {
     
     weak var viewController: UIViewController?
+    weak var delegate: DelegateTappedPage?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,6 +71,8 @@ class CustomViewRosket: UIView, UICollectionViewDelegate {
        
       @objc func tapPageControl() {
           let tappedPageIndex = pageControl.currentPage
+          print(tappedPageIndex)
+          delegate?.didSelectPage(atIndex: tappedPageIndex)
           
       }
        

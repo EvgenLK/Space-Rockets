@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-final class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+final class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DelegateTappedPage {
     
     let customViewRocket = CustomViewRosket()
     let viewModelResponse = NetworkRocketResponse()
@@ -28,6 +28,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         customViewRocket.collectionView.delegate = self
         customViewRocket.collectionView.dataSource = self
         customViewRocket.viewController = self
+        customViewRocket.delegate = self
         customViewRocket.collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         viewModelResponse.getDataRocketNetwork { json in
             self.viewModel.processJSONData()
@@ -36,8 +37,12 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.updateCell()
         }
     }
-    
-
+        
+    func didSelectPage(atIndex index: Int) {
+        self.indexPageControl = index
+        updateCell()
+        updateUI()
+    }
     
     func updateCell() {
         let rocketParametr = viewModelparametrRocket.getRocketDataParametr()
