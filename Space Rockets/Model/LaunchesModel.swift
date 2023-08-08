@@ -10,6 +10,6 @@ import Foundation
 
 struct LaunchesModel {
     let name: String
-    let success: String
+    let imageSuccess: String
     let staticFireDateUTC: String
 }

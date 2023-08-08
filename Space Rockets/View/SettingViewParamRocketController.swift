@@ -35,7 +35,7 @@ class SettingViewParamRocketController: UIViewController {
         return titleLabel
     }()
     
-    private let closeButton: UIButton = {
+    private lazy var closeButton: UIButton = {
         let closeButton = UIButton(type: .system)
         closeButton.setTitle("Закрыть", for: .normal)
         closeButton.tintColor = .white

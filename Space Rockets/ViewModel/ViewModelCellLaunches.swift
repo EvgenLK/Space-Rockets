@@ -7,26 +7,26 @@
 
 import Foundation
 
-class ViewModelCellLaunches: TableViewModelLaunchesType {
-    
-    private var launchesList: LaunchesModel
-    
-    var name: String {
-        return launchesList.name
-    }
-    var date: String {
-        return launchesList.staticFireDateUTC
-    }
-    var image: String? {
-        return ""
-    }
-    
-    init(launchesList: LaunchesModel) {
-        self.launchesList = launchesList
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-}
+//class ViewModelCellLaunches: TableViewModelLaunchesType {
+//    
+//    private var launchesList: LaunchesModel
+//    
+//    var name: String {
+//        return launchesList.name
+//    }
+//    var date: String {
+//        return launchesList.staticFireDateUTC
+//    }
+//    var image: String? {
+//        return ""
+//    }
+//    
+//    init(launchesList: LaunchesModel) {
+//        self.launchesList = launchesList
+//    }
+//    
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//    
+//}
