@@ -13,6 +13,7 @@ import SnapKit
 class CustomViewRosket: UIView, UICollectionViewDelegate {
     
     weak var viewController: UIViewController?
+    weak var delegate: DelegateTappedPage?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,7 +60,7 @@ class CustomViewRosket: UIView, UICollectionViewDelegate {
 
         lazy var pageControl: UIPageControl = {
            let pageControl = UIPageControl()
-           pageControl.numberOfPages = 3
+           pageControl.numberOfPages = 4
            pageControl.translatesAutoresizingMaskIntoConstraints = false
            pageControl.currentPageIndicatorTintColor = UIColor.orange
            pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.8)
@@ -69,8 +70,11 @@ class CustomViewRosket: UIView, UICollectionViewDelegate {
        }()
        
       @objc func tapPageControl() {
-
-       }
+          let tappedPageIndex = pageControl.currentPage
+          print(tappedPageIndex)
+          delegate?.didSelectPage(atIndex: tappedPageIndex)
+          
+      }
        
         let scrollInfoRocket: UIScrollView = {
            let scrollInfoRocket = UIScrollView()
