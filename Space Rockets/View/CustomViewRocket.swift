@@ -59,7 +59,7 @@ class CustomViewRosket: UIView, UICollectionViewDelegate {
 
         lazy var pageControl: UIPageControl = {
            let pageControl = UIPageControl()
-           pageControl.numberOfPages = 3
+           pageControl.numberOfPages = 4
            pageControl.translatesAutoresizingMaskIntoConstraints = false
            pageControl.currentPageIndicatorTintColor = UIColor.orange
            pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.8)
@@ -69,8 +69,9 @@ class CustomViewRosket: UIView, UICollectionViewDelegate {
        }()
        
       @objc func tapPageControl() {
-
-       }
+          let tappedPageIndex = pageControl.currentPage
+          
+      }
        
         let scrollInfoRocket: UIScrollView = {
            let scrollInfoRocket = UIScrollView()

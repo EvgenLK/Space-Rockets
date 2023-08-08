@@ -12,6 +12,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
     var viewRocketParamData = [DataRocket.ParamRocket]()
     var dictionaryRocket: [String: String] = [:]
     var ArrayRocketParam = ["Высота","Диаметр","Масса","Нагрузка"]
+    var indexPageControl = 0
     
     override func loadView() {
         view = customViewRocket
@@ -36,10 +37,12 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+
+    
     func updateCell() {
         let rocketParametr = viewModelparametrRocket.getRocketDataParametr()
         DispatchQueue.main.async {
-            self.viewRocketParamData = [rocketParametr[0]]
+            self.viewRocketParamData = [rocketParametr[self.indexPageControl]]
             self.customViewRocket.collectionView.reloadData()
         }
     }
@@ -50,7 +53,8 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         let rocketData = viewModel.getRocketDataData()
         
         DispatchQueue.main.async {
-            if let rocket = rocketInfo.first {
+            if self.indexPageControl < rocketInfo.count {
+                let rocket = rocketInfo[self.indexPageControl]
                 self.customViewRocket.dateOneStart.text = self.viewModelHelper.formatDate(dateString: rocket.dateOneStart)
                 self.customViewRocket.country.text = rocket.country
                 self.customViewRocket.startupCost.text = "$" + self.viewModelHelper.convertToMillions(inputNumber: "\(rocket.startupCost)") + " млн"
@@ -62,7 +66,8 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
                 self.customViewRocket.secondStageQuantitOfFuelInTons.text = "\(rocket.secondStageQuantitOfFuelInTons) ton."
             }
             
-            if let rocket = rocketData.first {
+            if self.indexPageControl < rocketData.count {
+                let rocket = rocketData[self.indexPageControl]
                 self.customViewRocket.labelName.text = rocket.name
                 self.viewModelHelper.loadImage(from: rocket.imageView ?? "rocket", into: self.customViewRocket.imageRocket)
             }

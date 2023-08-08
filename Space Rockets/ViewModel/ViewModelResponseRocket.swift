@@ -39,7 +39,7 @@ class ViewModelResponseRocket {
                                                      secondStageBurnTimeInSeconds: "\(rocketData.secondStage.burnTimeSEC ?? 0)")
             rocketInfo.append(rocketInfoVM)
                
-            let rocketDataVM = DataRocket(imageView: rocketData.flickrImages[1], name: rocketData.name) // нужно доделать рандомный выбор
+            let rocketDataVM = DataRocket(imageView: rocketData.flickrImages.first, name: rocketData.name) 
             rocketDataData.append(rocketDataVM)
         }
     }
