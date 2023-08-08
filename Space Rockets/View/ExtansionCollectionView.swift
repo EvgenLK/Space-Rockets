@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
-    
+        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
         let numberOfItemsInRow: CGFloat = 3.5
@@ -26,7 +26,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return !viewRocketParamData.isEmpty ? 4 : 0
+        return  !viewRocketParamData.isEmpty ? 4 : 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
