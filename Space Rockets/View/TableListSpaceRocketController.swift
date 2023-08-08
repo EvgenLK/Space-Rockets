@@ -20,7 +20,7 @@ class TableListSpaceRocketController: UITableViewController {
         tableView.register(TableViewCellRocketLaunch.self, forCellReuseIdentifier: "cell")
         viewModelLaunchesList?.responseLaunchesList { launchesList in
             DispatchQueue.main.async {
-                self.launchesList = launchesList as! [LaunchesModel]
+                self.launchesList = launchesList
                 self.tableView.reloadData()
             }
         }
@@ -33,19 +33,17 @@ class TableListSpaceRocketController: UITableViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationItem.title = "Rocket"
         tableView.reloadData()
-
-
     }
     
-    // Mark: setup Table view and color
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120 
+    }
+    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .darkGray
-        cell.layer.cornerRadius = 24
+        cell.layer.cornerRadius = 30
     }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
 
     // MARK: - Table view data source
 
@@ -56,19 +54,20 @@ class TableListSpaceRocketController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return launchesList.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellRocketLaunch
         
         let launch = launchesList[indexPath.row]
-        cell.congifure(with: CustomCellModel(name: launch.name, date: viewHelper.formatDateLaunches(launch.staticFireDateUTC)  , image: "\(launch.success)"))
-        
+        cell.congifure(with: CustomCellModel(name: launch.name, date: viewHelper.formatDateLaunches(launch.staticFireDateUTC), image: "\(launch.imageSuccess)"))
         
         cell.selectionStyle = .none
         cell.isUserInteractionEnabled = false
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 8
+        
         
         return cell
     }
-
 }

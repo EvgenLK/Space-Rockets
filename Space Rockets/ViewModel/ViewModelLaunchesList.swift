@@ -7,13 +7,13 @@
 
 import Foundation
 
-class ViewModelLaunchesList: ViewModelTypeLaunches {
+class ViewModelLaunchesList {
     
     let viewModelLaunches = NetworkLaunchesRocket()
     let ViewModelLaunchesData = ViewViewModelLaunchesList()
     var launchesListRocket = [LaunchesModel]()
     
-    func responseLaunchesList(complition:@escaping(Any)->()) {
+    func responseLaunchesList(complition:@escaping([LaunchesModel])->()) {
         viewModelLaunches.getLaunchesRocketNetwork { json in
             self.ViewModelLaunchesData.getLaunchesList(array: json) { launches in
                 DispatchQueue.main.async {
@@ -22,14 +22,5 @@ class ViewModelLaunchesList: ViewModelTypeLaunches {
                 }
             }
         }
-    }
-    
-    func getLaunches() -> [LaunchesModel] {
-        print(launchesListRocket)
-        return self.launchesListRocket
-    }
-    
-    func numberOfRows() -> Int {
-        return launchesListRocket.count
     }
 }

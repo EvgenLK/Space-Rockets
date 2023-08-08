@@ -12,8 +12,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
     var dictionaryRocket: [String: String] = [:]
     var ArrayRocketParam = ["Высота","Диаметр","Масса","Нагрузка"]
     var test = ViewModelLaunchesList()
-
-
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -27,7 +26,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.reloadData()
         viewModelResponse.getDataRocketNetwork { json in
             self.viewModel.processJSONData()
             self.updateUI()
@@ -37,13 +35,13 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func setupView() {
-        
         view.addSubview(scrollInfoRocket)
         scrollInfoRocket.addSubview(contentView)
         contentView.addSubview(imageRocket)
         contentView.addSubview(blackView)
         blackView.addSubview(settingButtonIcon)
         blackView.addSubview(labelName)
+        blackView.addSubview(collectionView)
         blackView.addSubview(labelDateOneStart)
         blackView.addSubview(dateOneStart)
         blackView.addSubview(labelCountry)
@@ -66,7 +64,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         blackView.addSubview(secondStageBurnTimeInSeconds)
         blackView.addSubview(buttonToViewLaunches)
         view.addSubview(pageControl)
-        blackView.addSubview(collectionView)
+        
         
     }
     
@@ -103,7 +101,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
 
-    private var pageControl: UIPageControl = {
+    private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.numberOfPages = 3
         pageControl.translatesAutoresizingMaskIntoConstraints = false
@@ -146,10 +144,10 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         return blackView
     }()
     
-    private let settingButtonIcon: UIButton = {
+    private lazy var settingButtonIcon: UIButton = {
         let settingButtonIcon = UIButton()
-        settingButtonIcon.translatesAutoresizingMaskIntoConstraints = false // разобраться потом
-        settingButtonIcon.setImage(UIImage(named: "setting"), for: .normal)
+        settingButtonIcon.translatesAutoresizingMaskIntoConstraints = false
+        settingButtonIcon.setImage(UIImage(named: "Setting.png"), for: .normal)
         settingButtonIcon.addTarget(self, action: #selector(viewSettingParamRocket), for: .touchUpInside)
         return settingButtonIcon
     }()
@@ -372,7 +370,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         return StageBurnTimeInSeconds
     }()
     
-    private let buttonToViewLaunches: UIButton = {
+    private lazy var buttonToViewLaunches: UIButton = {
         let buttonToViewLaunches = UIButton()
         buttonToViewLaunches.translatesAutoresizingMaskIntoConstraints = false
         buttonToViewLaunches.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)

@@ -10,14 +10,14 @@ import SnapKit
 
 class TableViewCellRocketLaunch: UITableViewCell {
     
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(nameRocketLabel)
-        addSubview(dateLaunchRocketLabel)
-        addSubview(imageLaunchRocketLabel)
+        contentView.addSubview(nameRocketLabel)
+        contentView.addSubview(dateLaunchRocketLabel)
+        contentView.addSubview(imageLaunchRocketLabel)
         constraintsCell()
     }
+    
     
     let nameRocketLabel: UILabel = {
         let nameRocketLabel = UILabel()
@@ -37,7 +37,6 @@ class TableViewCellRocketLaunch: UITableViewCell {
     
     let imageLaunchRocketLabel: UIImageView = {
         let imageLaunchRocketLabel = UIImageView()
-        imageLaunchRocketLabel.image = UIImage(named: "rocket24")
         return imageLaunchRocketLabel
     }()
     
@@ -66,9 +65,11 @@ class TableViewCellRocketLaunch: UITableViewCell {
             make.width.equalTo(32)
         }
     }
+    
     func congifure(with rocket: CustomCellModel) {
         nameRocketLabel.text = rocket.name
         dateLaunchRocketLabel.text = rocket.date
-        imageLaunchRocketLabel.image = UIImage(named: rocket.image)
+        imageLaunchRocketLabel.image = UIImage(named: "\(rocket.image)")
     }
+    
 }
