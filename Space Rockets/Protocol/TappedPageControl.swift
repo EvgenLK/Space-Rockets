@@ -9,5 +9,5 @@ import Foundation
 
 
 protocol DelegateTappedPage: AnyObject {
-    func didSelectPage(atIndex index: Int)
+    func didSelectPage(number: Int)
 }
