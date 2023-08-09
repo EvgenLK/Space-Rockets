@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-final class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DelegateTappedPage {
+final class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,  DelegateTappedPage {
     
     let customViewRocket = CustomViewRosket()
     let viewModelResponse = NetworkRocketResponse()
@@ -38,8 +38,8 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
         
-    func didSelectPage(atIndex index: Int) {
-        self.indexPageControl = index
+    func didSelectPage(number: Int) {
+        self.indexPageControl = number
         updateCell()
         updateUI()
     }
@@ -53,10 +53,8 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func updateUI() {
-        
         let rocketInfo = viewModel.getRocketDataInfo()
         let rocketData = viewModel.getRocketDataData()
-        
         DispatchQueue.main.async {
             if self.indexPageControl < rocketInfo.count {
                 let rocket = rocketInfo[self.indexPageControl]
@@ -74,7 +72,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
             if self.indexPageControl < rocketData.count {
                 let rocket = rocketData[self.indexPageControl]
                 self.customViewRocket.labelName.text = rocket.name
-                self.viewModelHelper.loadImage(from: rocket.imageView ?? "rocket", into: self.customViewRocket.imageRocket)
+                self.viewModelHelper.loadImage(from: rocket.imageView ?? "rocket", into: self.customViewRocket.imageRocket) // нужны рандомные картинки потом
             }
         }
     }

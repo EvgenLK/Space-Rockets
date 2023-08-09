@@ -42,7 +42,7 @@
 
 /* Begin PBXFileReference section */
 		9B39B22A2A6E9ABB00192D9E /* ViewModelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelHelper.swift; sourceTree = "<group>"; };
-		9B39B2322A6EB5CD00192D9E /* NetworkRocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkRocketResponse.swift; path = "Space Rockets/ViewModel/NetworkRocketResponse.swift"; sourceTree = SOURCE_ROOT; };
+		9B39B2322A6EB5CD00192D9E /* NetworkRocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkRocketResponse.swift; path = "Space Rockets/Response/NetworkRocketResponse.swift"; sourceTree = SOURCE_ROOT; };
 		9B44052A2A65F4A400817714 /* SettingViewParamRocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewParamRocketController.swift; sourceTree = "<group>"; };
 		9B4F96742A6D2DF8002AF524 /* ViewModelResponseRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelResponseRocket.swift; sourceTree = "<group>"; };
 		9B5E06412A81B33B00CF258D /* successLaunches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = successLaunches.png; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		9B7629B22A5C1989005E3C72 /* Space_Rockets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Rockets.xcdatamodel; sourceTree = "<group>"; };
 		9B7629B42A5C198A005E3C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B7629B92A5C198A005E3C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B79DAFF2A7E7E7200E80103 /* NetworkLaunchesRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkLaunchesRocket.swift; path = "Space Rockets/Model/NetworkLaunchesRocket.swift"; sourceTree = SOURCE_ROOT; };
+		9B79DAFF2A7E7E7200E80103 /* NetworkLaunchesRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkLaunchesRocket.swift; path = "Space Rockets/Response/NetworkLaunchesRocket.swift"; sourceTree = SOURCE_ROOT; };
 		9B79DB012A7E7EC100E80103 /* LaunchesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesModel.swift; sourceTree = "<group>"; };
 		9B79DB032A7E8E2F00E80103 /* ViewModelLaunchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelLaunchesList.swift; sourceTree = "<group>"; };
 		9B79DB072A7E8F3100E80103 /* TableViewModelLaunchesType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelLaunchesType.swift; sourceTree = "<group>"; };
@@ -109,6 +109,15 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		9B700AA22A826F3600D4ABA4 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				9B79DAFF2A7E7E7200E80103 /* NetworkLaunchesRocket.swift */,
+				9B39B2322A6EB5CD00192D9E /* NetworkRocketResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		9B76299C2A5C1989005E3C72 = {
 			isa = PBXGroup;
 			children = (
@@ -128,11 +137,11 @@
 		9B7629A72A5C1989005E3C72 /* Space Rockets */ = {
 			isa = PBXGroup;
 			children = (
+				9B700AA22A826F3600D4ABA4 /* Response */,
 				9B849E972A5D7A8E000E997F /* ObservableObject.swift */,
 				9B7629A82A5C1989005E3C72 /* AppDelegate.swift */,
 				9B7629AA2A5C1989005E3C72 /* SceneDelegate.swift */,
 				9B6C0D7F2A5CBD7300F27F36 /* Protocol */,
-				9BDE89B52A6C1CFF004D0978 /* Response */,
 				9B7629C12A5C1BBE005E3C72 /* Model */,
 				9B7629BF2A5C1B8E005E3C72 /* View */,
 				9B7629C02A5C1B9A005E3C72 /* ViewModel */,
@@ -180,15 +189,6 @@
 				9B79DB012A7E7EC100E80103 /* LaunchesModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		9BDE89B52A6C1CFF004D0978 /* Response */ = {
-			isa = PBXGroup;
-			children = (
-				9B39B2322A6EB5CD00192D9E /* NetworkRocketResponse.swift */,
-				9B79DAFF2A7E7E7200E80103 /* NetworkLaunchesRocket.swift */,
-			);
-			path = Response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

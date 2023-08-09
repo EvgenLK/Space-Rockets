@@ -58,21 +58,22 @@ class CustomViewRosket: UIView, UICollectionViewDelegate {
     }
      
 
-        lazy var pageControl: UIPageControl = {
-           let pageControl = UIPageControl()
-           pageControl.numberOfPages = 4
-           pageControl.translatesAutoresizingMaskIntoConstraints = false
-           pageControl.currentPageIndicatorTintColor = UIColor.orange
-           pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.8)
-           pageControl.backgroundColor = .systemFill
-           pageControl.addTarget(self, action: #selector(tapPageControl), for: .touchUpInside)
-           return pageControl
-       }()
+    lazy var pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.numberOfPages = 4
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.currentPageIndicatorTintColor = UIColor.orange
+        pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.8)
+        pageControl.backgroundColor = .systemFill
+        pageControl.addTarget(self, action: #selector(tapPageControl), for: .touchUpInside)
+        
+        return pageControl
+    }()
        
       @objc func tapPageControl() {
           let tappedPageIndex = pageControl.currentPage
           print(tappedPageIndex)
-          delegate?.didSelectPage(atIndex: tappedPageIndex)
+          delegate?.didSelectPage(number: tappedPageIndex)
           
       }
        
