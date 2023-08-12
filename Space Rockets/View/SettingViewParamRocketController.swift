@@ -4,25 +4,22 @@
 //
 //  Created by Evgenii Kutasov on 18.07.2023.
 //
-
+import Foundation
 import UIKit
 import SnapKit
 
 class SettingViewParamRocketController: UIViewController {
     
+    var delegate: SettingViewParamRocketDelegate?
+    
+    var tappedValueHeight: Int = 0
+    var tappedValueDiameter: Int = 0
+    var tappedValueMass: Int = 0
+    var tappedValueLeo: Int = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-        view.addSubview(titleLabel)
-        view.addSubview(closeButton)
-        view.addSubview(heightUnit)
-        view.addSubview(diameterUnit)
-        view.addSubview(weightUnit)
-        view.addSubview(leoUnit)
-        view.addSubview(heightUnitSegmented)
-        view.addSubview(diameterUnitSegmented)
-        view.addSubview(weightUnitSegmented)
-        view.addSubview(leoUnitSegmented)
+        setupView()
         constraintsElements()
     }
     
@@ -45,9 +42,17 @@ class SettingViewParamRocketController: UIViewController {
         return closeButton
     }()
 
-
     @objc func closeButtonTapped() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
+
+        tappedValueHeight = heightUnitSegmented.selectedSegmentIndex
+        tappedValueDiameter = diameterUnitSegmented.selectedSegmentIndex
+        tappedValueMass = weightUnitSegmented.selectedSegmentIndex
+        tappedValueLeo = leoUnitSegmented.selectedSegmentIndex
+        
+        delegate?.didUpdateRocketParameters(height: tappedValueHeight , diameter: tappedValueDiameter, mass: tappedValueMass, leo: tappedValueLeo)
+
+//        print(tappedValueHeight,tappedValueDiameter,tappedValueMass,tappedValueLeo)
     }
     
     private let heightUnit: UILabel = {
@@ -86,34 +91,67 @@ class SettingViewParamRocketController: UIViewController {
         return leoUnit
     }()
     
-    private let heightUnitSegmented: UISegmentedControl = {
+    private lazy var heightUnitSegmented: UISegmentedControl = {
         let heightUnitSegmented = UISegmentedControl(items: ["m","ft"])
         heightUnitSegmented.backgroundColor = .darkGray
-        heightUnitSegmented.selectedSegmentIndex = 0
+        heightUnitSegmented.selectedSegmentIndex = 1
+        heightUnitSegmented.addTarget(self, action: #selector(setupHeightValue), for: .valueChanged)
         return heightUnitSegmented
     }()
     
-    private let diameterUnitSegmented: UISegmentedControl = {
+    @objc func setupHeightValue() {
+        tappedValueHeight = heightUnitSegmented.selectedSegmentIndex
+    }
+    
+    private lazy var diameterUnitSegmented: UISegmentedControl = {
         let diameterUnitSegmented = UISegmentedControl(items: ["m","ft"])
         diameterUnitSegmented.backgroundColor = .darkGray
         diameterUnitSegmented.selectedSegmentIndex = 0
+        diameterUnitSegmented.addTarget(self, action: #selector(setupDiameterValue), for: .valueChanged)
         return diameterUnitSegmented
     }()
     
-    private let weightUnitSegmented: UISegmentedControl = {
+    @objc func setupDiameterValue() {
+        tappedValueDiameter = diameterUnitSegmented.selectedSegmentIndex
+    }
+    
+    private lazy var weightUnitSegmented: UISegmentedControl = {
         let weightUnitSegmented = UISegmentedControl(items: ["kg","lb"])
         weightUnitSegmented.backgroundColor = .darkGray
         weightUnitSegmented.selectedSegmentIndex = 1
+        weightUnitSegmented.addTarget(self, action: #selector(setupMassValue), for: .valueChanged)
         return weightUnitSegmented
     }()
+    
+    @objc func setupMassValue() {
+        tappedValueMass = weightUnitSegmented.selectedSegmentIndex
+    }
 
-    private let leoUnitSegmented: UISegmentedControl = {
+    private lazy var leoUnitSegmented: UISegmentedControl = {
         let leoUnitSegmented = UISegmentedControl(items: ["kg","lb"])
         leoUnitSegmented.backgroundColor = .darkGray
-        leoUnitSegmented.selectedSegmentIndex = 1
+        leoUnitSegmented.selectedSegmentIndex = 0
+        leoUnitSegmented.addTarget(self, action: #selector(setupLeoValue), for: .valueChanged)
         return leoUnitSegmented
     }()
+    
+    @objc func setupLeoValue() {
+        tappedValueLeo = leoUnitSegmented.selectedSegmentIndex
+    }
 
+    func setupView() {
+        view.backgroundColor = .black
+        view.addSubview(titleLabel)
+        view.addSubview(closeButton)
+        view.addSubview(heightUnit)
+        view.addSubview(diameterUnit)
+        view.addSubview(weightUnit)
+        view.addSubview(leoUnit)
+        view.addSubview(heightUnitSegmented)
+        view.addSubview(diameterUnitSegmented)
+        view.addSubview(weightUnitSegmented)
+        view.addSubview(leoUnitSegmented)
+    }
     
     func constraintsElements() {
         

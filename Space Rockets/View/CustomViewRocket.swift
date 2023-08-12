@@ -65,16 +65,14 @@ class CustomViewRosket: UIView, UICollectionViewDelegate {
         pageControl.currentPageIndicatorTintColor = UIColor.orange
         pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.8)
         pageControl.backgroundColor = .systemFill
-        pageControl.addTarget(self, action: #selector(tapPageControl), for: .touchUpInside)
+        pageControl.addTarget(self, action: #selector(tapPageControl), for: .valueChanged)
         
         return pageControl
     }()
        
       @objc func tapPageControl() {
           let tappedPageIndex = pageControl.currentPage
-          print(tappedPageIndex)
           delegate?.didSelectPage(number: tappedPageIndex)
-          
       }
        
         let scrollInfoRocket: UIScrollView = {

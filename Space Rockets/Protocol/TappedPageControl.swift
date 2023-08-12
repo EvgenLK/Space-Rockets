@@ -7,7 +7,7 @@
 
 import Foundation
 
-
 protocol DelegateTappedPage: AnyObject {
     func didSelectPage(number: Int)
 }
+

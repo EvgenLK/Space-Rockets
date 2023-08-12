@@ -1,9 +1,10 @@
 import UIKit
 import SnapKit
 
-final class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,  DelegateTappedPage {
-    
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DelegateTappedPage, SettingViewParamRocketDelegate{
+
     let customViewRocket = CustomViewRosket()
+    
     let viewModelResponse = NetworkRocketResponse()
     let viewModel = ViewModelResponseRocket()
     let viewModelparametrRocket = ViewModelCollectionView()
@@ -13,7 +14,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
     var dictionaryRocket: [String: String] = [:]
     var ArrayRocketParam = ["Высота","Диаметр","Масса","Нагрузка"]
     var indexPageControl = 0
-    
+    let settingVC = SettingViewParamRocketController()
     override func loadView() {
         view = customViewRocket
     }
@@ -36,16 +37,42 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.viewModelparametrRocket.processJSONData()
             self.updateCell()
         }
+        settingVC.delegate = self
+    
     }
-        
+    
+    
     func didSelectPage(number: Int) {
         self.indexPageControl = number
         updateCell()
         updateUI()
     }
     
+    func didUpdateRocketParameters(height: Int, diameter: Int, mass: Int, leo: Int) {
+        print(height, diameter, mass, leo)
+                if let newHeightUnit = MeasurementUnit(rawValue: height) {
+                    viewModelparametrRocket.currentHeightUnit = newHeightUnit
+                }
+                if let newDiameterUnit = DiameterUnit(rawValue: diameter) {
+                    viewModelparametrRocket.currentDiameterUnit = newDiameterUnit
+                }
+                if let newMassUnit = WeightUnit(rawValue: mass) {
+                    viewModelparametrRocket.currentWeightUnit = newMassUnit
+                }
+                if let newLeoUnit = LeoUnit(rawValue: leo) {
+                    viewModelparametrRocket.currentLeoUnit = newLeoUnit
+                }
+                viewModelparametrRocket.processJSONData()
+                customViewRocket.collectionView.reloadData()
+    }
+    
     func updateCell() {
         let rocketParametr = viewModelparametrRocket.getRocketDataParametr()
+        guard indexPageControl < rocketParametr.count else {
+            print("Ошибка: Индекс выходит за пределы допустимого диапазона для массива rocketParametr")
+            return
+        }
+        
         DispatchQueue.main.async {
             self.viewRocketParamData = [rocketParametr[self.indexPageControl]]
             self.customViewRocket.collectionView.reloadData()
