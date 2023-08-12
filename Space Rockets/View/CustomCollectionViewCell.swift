@@ -25,7 +25,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     func setupConstraintsCell() {
         contentView.snp.makeConstraints { make in
-            make.width.height.equalTo(96)
+            make.height.equalTo(96)
+            make.width.equalTo(103)
         }
     }
     
@@ -55,8 +56,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         myLabelNameParametr.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(52)
-            make.left.equalToSuperview().offset(8)
-            make.right.equalToSuperview().offset(-8)
+            make.left.equalToSuperview().offset(1)
+            make.right.equalToSuperview().offset(-1)
         }
     }
     func configure(with parametr: CustomCellParamRocket) {

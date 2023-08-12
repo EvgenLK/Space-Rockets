@@ -13,12 +13,12 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
         let numberOfItemsInRow: CGFloat = 3.5
-        let spacingBetweenItems: CGFloat = 12 
+        let spacingBetweenItems: CGFloat = 12
 
         let totalSpacing = (numberOfItemsInRow - 1) * spacingBetweenItems
         let itemWidth = (collectionViewWidth - totalSpacing) / numberOfItemsInRow
 
-        return CGSize(width: itemWidth, height: collectionView.frame.height)
+        return CGSize(width: itemWidth , height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -33,15 +33,19 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCollectionViewCell
         
         if let rocket = viewRocketParamData.first {
+            
+            let ArrayRocketParam = ["Высота","Диаметр","Масса","Нагрузка"]
 
+            
             dictionaryRocket["Высота"] = rocket.height
             dictionaryRocket["Диаметр"] = rocket.diameter
             dictionaryRocket["Масса"] = rocket.weight
             dictionaryRocket["Нагрузка"] = rocket.leo
 
+            let keyName = arrayParametrName[indexPath.row]
             let key = ArrayRocketParam[indexPath.row]
             if let value = dictionaryRocket[key] {
-                cell.configure(with: CustomCellParamRocket(number: value, parametr: key))
+                cell.configure(with: CustomCellParamRocket(number: value, parametr: keyName))
             }
         }
         return cell

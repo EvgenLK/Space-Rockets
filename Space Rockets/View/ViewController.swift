@@ -11,8 +11,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var viewModelProtocol: CollectionViewModel?
     var viewRocketParamData = [DataRocket.ParamRocket]()
     var dictionaryRocket: [String: String] = [:]
-    var ArrayRocketParam = ["Высота","Диаметр","Масса","Нагрузка"]
     var indexPageControl = 0
+    var arrayParametrName = ["Высота, m","Диаметр, m","Масса, kg","Нагрузка, lb"]
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,20 +46,39 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func didUpdateRocketParameters(height: Int, diameter: Int, mass: Int, leo: Int) {
-                if let newHeightUnit = MeasurementUnit(rawValue: height) {
-                    viewModelparametrRocket.currentHeightUnit = newHeightUnit
+        arrayParametrName.removeAll()
+        DispatchQueue.main.async {
+            if let newHeightUnit = HeightUnit(rawValue: height) {
+                self.viewModelparametrRocket.currentHeightUnit = newHeightUnit
+                if let unit = HeightUnit(rawValue: height) {
+                    let description = unit.description(for: height)
+                    self.arrayParametrName.append("Высота, \(description)")
                 }
-                if let newDiameterUnit = DiameterUnit(rawValue: diameter) {
-                    viewModelparametrRocket.currentDiameterUnit = newDiameterUnit
+            }
+            if let newDiameterUnit = DiameterUnit(rawValue: diameter) {
+                self.viewModelparametrRocket.currentDiameterUnit = newDiameterUnit
+                if let unit = DiameterUnit(rawValue: diameter) {
+                    let description = unit.description(for: diameter)
+                    self.arrayParametrName.append("Диаметр, \(description)")
                 }
-                if let newMassUnit = WeightUnit(rawValue: mass) {
-                    viewModelparametrRocket.currentWeightUnit = newMassUnit
+            }
+            if let newMassUnit = WeightUnit(rawValue: mass) {
+                self.viewModelparametrRocket.currentWeightUnit = newMassUnit
+                if let unit = WeightUnit(rawValue: mass) {
+                    let description = unit.description(for: mass)
+                    self.arrayParametrName.append("Масса, \(description)")
                 }
-                if let newLeoUnit = LeoUnit(rawValue: leo) {
-                    viewModelparametrRocket.currentLeoUnit = newLeoUnit
+            }
+            if let newLeoUnit = LeoUnit(rawValue: leo) {
+                self.viewModelparametrRocket.currentLeoUnit = newLeoUnit
+                if let unit = LeoUnit(rawValue: leo) {
+                    let description = unit.description(for: leo)
+                    self.arrayParametrName.append("Нагрузка, \(description)")
                 }
-                viewModelparametrRocket.processJSONData()
-                updateCell()
+            }
+            self.viewModelparametrRocket.processJSONData()
+            self.updateCell()
+        }
     }
     
     func updateCell() {
@@ -67,7 +87,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             print("Ошибка: Индекс выходит за пределы допустимого диапазона для массива rocketParametr")
             return
         }
-        
         DispatchQueue.main.async {
             self.viewRocketParamData = [rocketParametr[self.indexPageControl]]
             self.collectionView.reloadData()
@@ -90,7 +109,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 self.secondStageBurnTimeInSeconds.text = "\(rocket.secondStageBurnTimeInSeconds) sec"
                 self.secondStageQuantitOfFuelInTons.text = "\(rocket.secondStageQuantitOfFuelInTons) ton."
             }
-            
             if self.indexPageControl < rocketData.count {
                 let rocket = rocketData[self.indexPageControl]
                 self.labelName.text = rocket.name
