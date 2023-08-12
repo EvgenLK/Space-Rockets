@@ -12,6 +12,12 @@ class ViewModelCollectionView: CollectionViewModel {
     let viewModelResponse = NetworkRocketResponse()
     private var rocketParam = [SpaceDatumRocket]()
     var rocketParamData = [DataRocket.ParamRocket]()
+    
+    var currentHeightUnit: MeasurementUnit = .meters
+    var currentWeightUnit: WeightUnit = .kilograms
+    var currentDiameterUnit: DiameterUnit = .meters
+    var currentLeoUnit: LeoUnit = .lb
+    
 
     init() {
         fetchRocketData()
@@ -22,13 +28,44 @@ class ViewModelCollectionView: CollectionViewModel {
             self.rocketParam = json
         }
     }
+    
     func processJSONData() {
+        self.rocketParamData.removeAll()
          for rocketData in self.rocketParam {
-             let height = "\(rocketData.height.meters ?? 0)"
-             let diameter = "\(rocketData.diameter.meters ?? 0)"
-             let weight = "\(rocketData.mass.kg)"
-             let leo = "\(rocketData.payloadWeights[0].lb)"
-             let rocketParametr = DataRocket.ParamRocket(height: height, diameter: diameter, weight: weight, leo: leo)
+             var heightValue: String
+             var weightValue: String
+             var diameterValue: String
+             var leoValue: String
+
+             switch currentHeightUnit {
+             case .feet:
+                  heightValue = "\(rocketData.height.feet ?? 0)"
+             case .meters:
+                  heightValue = "\(rocketData.height.meters ?? 0)"
+             }
+             
+             switch currentDiameterUnit {
+             case .feet:
+                  diameterValue = "\(rocketData.diameter.feet ?? 0)"
+             case .meters:
+                  diameterValue = "\(rocketData.diameter.meters ?? 0)"
+             }
+             
+             switch currentWeightUnit {
+             case .kilograms:
+                  weightValue = "\(rocketData.mass.kg)"
+             case .lb:
+                  weightValue = "\(rocketData.mass.lb)"
+             }
+             
+             switch currentLeoUnit {
+             case .kilograms:
+                  leoValue = "\(rocketData.payloadWeights[0].kg)"
+             case .lb:
+                  leoValue = "\(rocketData.payloadWeights[0].lb)"
+             }
+             
+             let rocketParametr = DataRocket.ParamRocket(height: heightValue, diameter: diameterValue, weight: weightValue, leo: leoValue)
              rocketParamData.append(rocketParametr)
         }
     }
