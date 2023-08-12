@@ -10,7 +10,7 @@ import SnapKit
 
 class SettingViewParamRocketController: UIViewController {
     
-    var delegate: SettingViewParamRocketDelegate?
+    weak var delegate: SettingViewParamRocketDelegate?
     
     var tappedValueHeight: Int = 0
     var tappedValueDiameter: Int = 0
@@ -43,17 +43,11 @@ class SettingViewParamRocketController: UIViewController {
     }()
 
     @objc func closeButtonTapped() {
-        dismiss(animated: true)
-
-        tappedValueHeight = heightUnitSegmented.selectedSegmentIndex
-        tappedValueDiameter = diameterUnitSegmented.selectedSegmentIndex
-        tappedValueMass = weightUnitSegmented.selectedSegmentIndex
-        tappedValueLeo = leoUnitSegmented.selectedSegmentIndex
         
-        delegate?.didUpdateRocketParameters(height: tappedValueHeight , diameter: tappedValueDiameter, mass: tappedValueMass, leo: tappedValueLeo)
-
-//        print(tappedValueHeight,tappedValueDiameter,tappedValueMass,tappedValueLeo)
+        delegate?.didUpdateRocketParameters(height: tappedValueHeight, diameter: tappedValueDiameter, mass: tappedValueMass, leo: tappedValueLeo)
+        dismiss(animated: true, completion: nil)
     }
+
     
     private let heightUnit: UILabel = {
         let heightUnit = UILabel()
@@ -94,7 +88,7 @@ class SettingViewParamRocketController: UIViewController {
     private lazy var heightUnitSegmented: UISegmentedControl = {
         let heightUnitSegmented = UISegmentedControl(items: ["m","ft"])
         heightUnitSegmented.backgroundColor = .darkGray
-        heightUnitSegmented.selectedSegmentIndex = 1
+        heightUnitSegmented.selectedSegmentIndex = tappedValueHeight
         heightUnitSegmented.addTarget(self, action: #selector(setupHeightValue), for: .valueChanged)
         return heightUnitSegmented
     }()
@@ -106,7 +100,7 @@ class SettingViewParamRocketController: UIViewController {
     private lazy var diameterUnitSegmented: UISegmentedControl = {
         let diameterUnitSegmented = UISegmentedControl(items: ["m","ft"])
         diameterUnitSegmented.backgroundColor = .darkGray
-        diameterUnitSegmented.selectedSegmentIndex = 0
+        diameterUnitSegmented.selectedSegmentIndex = tappedValueDiameter
         diameterUnitSegmented.addTarget(self, action: #selector(setupDiameterValue), for: .valueChanged)
         return diameterUnitSegmented
     }()
@@ -118,7 +112,7 @@ class SettingViewParamRocketController: UIViewController {
     private lazy var weightUnitSegmented: UISegmentedControl = {
         let weightUnitSegmented = UISegmentedControl(items: ["kg","lb"])
         weightUnitSegmented.backgroundColor = .darkGray
-        weightUnitSegmented.selectedSegmentIndex = 1
+        weightUnitSegmented.selectedSegmentIndex = tappedValueMass
         weightUnitSegmented.addTarget(self, action: #selector(setupMassValue), for: .valueChanged)
         return weightUnitSegmented
     }()
@@ -130,7 +124,7 @@ class SettingViewParamRocketController: UIViewController {
     private lazy var leoUnitSegmented: UISegmentedControl = {
         let leoUnitSegmented = UISegmentedControl(items: ["kg","lb"])
         leoUnitSegmented.backgroundColor = .darkGray
-        leoUnitSegmented.selectedSegmentIndex = 0
+        leoUnitSegmented.selectedSegmentIndex = tappedValueLeo
         leoUnitSegmented.addTarget(self, action: #selector(setupLeoValue), for: .valueChanged)
         return leoUnitSegmented
     }()

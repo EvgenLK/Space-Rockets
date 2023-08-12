@@ -30,6 +30,7 @@ class ViewModelCollectionView: CollectionViewModel {
     }
     
     func processJSONData() {
+        self.rocketParamData.removeAll()
          for rocketData in self.rocketParam {
              var heightValue: String
              var weightValue: String

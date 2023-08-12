@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SettingViewParamRocketDelegate: AnyObject{
+protocol SettingViewParamRocketDelegate: AnyObject {
     func didUpdateRocketParameters(height: Int, diameter: Int, mass: Int, leo: Int)
 }
 

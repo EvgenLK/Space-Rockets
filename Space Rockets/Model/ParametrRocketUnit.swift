@@ -9,17 +9,17 @@ import Foundation
 
 
 enum MeasurementUnit: Int {
-    case feet = 0, meters
-}
-
-enum WeightUnit: Int {
-    case lb = 0, kilograms
+    case meters = 0, feet
 }
 
 enum DiameterUnit: Int {
-    case feet = 0, meters
+    case meters = 0, feet
+}
+
+enum WeightUnit: Int {
+    case kilograms = 0, lb
 }
 
 enum LeoUnit: Int {
-    case lb = 0, kilograms
+    case kilograms = 0, lb
 }
