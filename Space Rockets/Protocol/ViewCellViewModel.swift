@@ -8,7 +8,6 @@
 import Foundation
 
 protocol ViewCellViewModel: AnyObject {
-    
     var height: String { get }
     var diametr: String { get }
     var mass: String { get }

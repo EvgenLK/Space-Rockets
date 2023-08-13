@@ -7,12 +7,11 @@
 
 import UIKit
 
-class TableListSpaceRocketController: UITableViewController {
+final class TableListSpaceRocketController: UITableViewController {
     
     var viewModelLaunchesList: ViewModelLaunchesList?
     var launchesList =  [LaunchesModel]()
     var viewHelper = ViewModelHelper()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +31,7 @@ class TableListSpaceRocketController: UITableViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationItem.title = "Rocket"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         tableView.reloadData()
     }
     
@@ -66,7 +66,6 @@ class TableListSpaceRocketController: UITableViewController {
         cell.backgroundColor = UIColor.white
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 8
-        
         
         return cell
     }

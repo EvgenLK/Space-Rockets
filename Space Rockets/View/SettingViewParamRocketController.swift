@@ -8,7 +8,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class SettingViewParamRocketController: UIViewController {
+final class SettingViewParamRocketController: UIViewController {
     
     weak var delegate: SettingViewParamRocketDelegate?
     
@@ -43,12 +43,10 @@ class SettingViewParamRocketController: UIViewController {
     }()
 
     @objc func closeButtonTapped() {
-        
         delegate?.didUpdateRocketParameters(height: tappedValueHeight, diameter: tappedValueDiameter, mass: tappedValueMass, leo: tappedValueLeo)
         dismiss(animated: true, completion: nil)
     }
 
-    
     private let heightUnit: UILabel = {
         let heightUnit = UILabel()
         heightUnit.text = "Высота"

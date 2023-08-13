@@ -13,9 +13,9 @@ class ViewModelCollectionView: CollectionViewModel {
     private var rocketParam = [SpaceDatumRocket]()
     var rocketParamData = [DataRocket.ParamRocket]()
     
-    var currentHeightUnit: MeasurementUnit = .meters
-    var currentWeightUnit: WeightUnit = .kilograms
-    var currentDiameterUnit: DiameterUnit = .meters
+    var currentHeightUnit: HeightUnit = .m
+    var currentWeightUnit: WeightUnit = .kg
+    var currentDiameterUnit: DiameterUnit = .m
     var currentLeoUnit: LeoUnit = .lb
     
 
@@ -38,28 +38,28 @@ class ViewModelCollectionView: CollectionViewModel {
              var leoValue: String
 
              switch currentHeightUnit {
-             case .feet:
+             case .ft:
                   heightValue = "\(rocketData.height.feet ?? 0)"
-             case .meters:
+             case .m:
                   heightValue = "\(rocketData.height.meters ?? 0)"
              }
              
              switch currentDiameterUnit {
-             case .feet:
+             case .ft:
                   diameterValue = "\(rocketData.diameter.feet ?? 0)"
-             case .meters:
+             case .m:
                   diameterValue = "\(rocketData.diameter.meters ?? 0)"
              }
              
              switch currentWeightUnit {
-             case .kilograms:
+             case .kg:
                   weightValue = "\(rocketData.mass.kg)"
              case .lb:
                   weightValue = "\(rocketData.mass.lb)"
              }
              
              switch currentLeoUnit {
-             case .kilograms:
+             case .kg:
                   leoValue = "\(rocketData.payloadWeights[0].kg)"
              case .lb:
                   leoValue = "\(rocketData.payloadWeights[0].lb)"

@@ -7,8 +7,6 @@
 
 import Foundation
 
-
 protocol CollectionViewModel {
     func numberOfRows() -> Int
-    
 }
