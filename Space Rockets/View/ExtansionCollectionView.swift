@@ -36,7 +36,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             
             let ArrayRocketParam = ["Высота","Диаметр","Масса","Нагрузка"]
 
-            
             dictionaryRocket["Высота"] = rocket.height
             dictionaryRocket["Диаметр"] = rocket.diameter
             dictionaryRocket["Масса"] = rocket.weight
@@ -50,6 +49,5 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         }
         return cell
     }
-
 }
 

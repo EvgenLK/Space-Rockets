@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TableViewCellRocketLaunch: UITableViewCell {
+final class TableViewCellRocketLaunch: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -19,15 +19,15 @@ class TableViewCellRocketLaunch: UITableViewCell {
     }
     
     
-    let nameRocketLabel: UILabel = {
+    private let nameRocketLabel: UILabel = {
         let nameRocketLabel = UILabel()
-        nameRocketLabel.font = UIFont(name: "Lab Grotesque", size: 20.0)
+        nameRocketLabel.font = UIFont(name: "Arial", size: 20.0)
         nameRocketLabel.textColor = .white
         nameRocketLabel.text = "Rocket"
         return nameRocketLabel
     }()
     
-    let dateLaunchRocketLabel: UILabel = {
+    private let dateLaunchRocketLabel: UILabel = {
         let dateLaunchRocketLabel = UILabel()
         dateLaunchRocketLabel.font = UIFont(name: "Lab Grotesque", size: 16.0)
         dateLaunchRocketLabel.textColor = .white
@@ -35,7 +35,7 @@ class TableViewCellRocketLaunch: UITableViewCell {
         return dateLaunchRocketLabel
     }()
     
-    let imageLaunchRocketLabel: UIImageView = {
+    private let imageLaunchRocketLabel: UIImageView = {
         let imageLaunchRocketLabel = UIImageView()
         return imageLaunchRocketLabel
     }()
@@ -71,5 +71,4 @@ class TableViewCellRocketLaunch: UITableViewCell {
         dateLaunchRocketLabel.text = rocket.date
         imageLaunchRocketLabel.image = UIImage(named: "\(rocket.image)")
     }
-    
 }

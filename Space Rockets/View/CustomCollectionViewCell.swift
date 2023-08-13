@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomCollectionViewCell: UICollectionViewCell {
+final class CustomCollectionViewCell: UICollectionViewCell {
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +30,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    let myLabelNumber: UILabel = {
+    private let myLabelNumber: UILabel = {
         let myLabelNumber = UILabel()
         myLabelNumber.translatesAutoresizingMaskIntoConstraints = false
         myLabelNumber.textColor = .white
@@ -38,7 +38,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         return myLabelNumber
     }()
     
-    let myLabelNameParametr: UILabel = {
+    private let myLabelNameParametr: UILabel = {
         let myLabelNameParametr = UILabel()
         myLabelNameParametr.translatesAutoresizingMaskIntoConstraints = false
         myLabelNameParametr.textColor = .gray

@@ -10,7 +10,6 @@ import Foundation
 
 enum HeightUnit: Int {
     case m = 0, ft
-    
     func description(for value: Int) -> String {
         switch value {
         case HeightUnit.m.rawValue:
@@ -47,7 +46,8 @@ enum WeightUnit: Int {
         case WeightUnit.lb.rawValue:
             return "lb"
         default:
-            return "not"
+            return "unknown unit"
+            
         }
     }
 }
@@ -61,7 +61,8 @@ enum LeoUnit: Int {
         case LeoUnit.lb.rawValue:
             return "lb"
         default:
-            return "not"
+            return "unknown unit"
+            
         }
     }
 }

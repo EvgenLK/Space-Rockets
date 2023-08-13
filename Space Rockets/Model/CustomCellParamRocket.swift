@@ -8,8 +8,6 @@
 import Foundation
 
 struct CustomCellParamRocket {
-    
     let number: String
     let parametr: String
-    
 }

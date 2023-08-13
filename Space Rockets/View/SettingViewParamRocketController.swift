@@ -8,7 +8,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class SettingViewParamRocketController: UIViewController {
+final class SettingViewParamRocketController: UIViewController {
     
     weak var delegate: SettingViewParamRocketDelegate?
     

@@ -15,7 +15,6 @@ class ViewModelResponseRocket {
     private var viewModelResponseRocket = NetworkRocketResponse()
     var dataRocket = [SpaceDatumRocket]()
     
-    
     init() {
         fetchRocketData()
     }
@@ -51,14 +50,6 @@ class ViewModelResponseRocket {
     func getRocketDataData() -> [DataRocket] {
         return rocketDataData
     }
-    
-    func getRocket(at index: Int) -> DataRocket? {
-        guard index >= 0, index < rocketDataData.count else {
-            return nil
-        }
-        return rocketDataData[index]
-    }
-
 }
     
 
