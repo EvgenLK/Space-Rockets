@@ -148,7 +148,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.numberOfPages = 4
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.currentPageIndicatorTintColor = UIColor.orange
         pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.8)
         pageControl.backgroundColor = .systemFill
@@ -157,33 +156,29 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
         return pageControl
     }()
        
-      @objc func tapPageControl() {
+      @objc private func tapPageControl() {
           didSelectPage()
       }
        
         private let scrollInfoRocket: UIScrollView = {
            let scrollInfoRocket = UIScrollView()
-           scrollInfoRocket.translatesAutoresizingMaskIntoConstraints = false
            scrollInfoRocket.backgroundColor = .white
            return scrollInfoRocket
        }()
        
     private let contentView: UIView = {
            let contentView = UIView()
-           contentView.translatesAutoresizingMaskIntoConstraints = false
            return contentView
        }()
        
     private let imageRocket: UIImageView = {
            let imageRocket = UIImageView()
-           imageRocket.translatesAutoresizingMaskIntoConstraints = false
            imageRocket.image = UIImage(named: "rocket")
            return imageRocket
        }()
        
     private let blackView: UIView = {
            let blackView = UIView()
-           blackView.translatesAutoresizingMaskIntoConstraints = false
            blackView.backgroundColor = .black
            blackView.layer.cornerRadius = 30
            return blackView
@@ -191,13 +186,12 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private lazy var settingButtonIcon: UIButton = {
            let settingButtonIcon = UIButton()
-           settingButtonIcon.translatesAutoresizingMaskIntoConstraints = false
            settingButtonIcon.setImage(UIImage(named: "Setting.png"), for: .normal)
            settingButtonIcon.addTarget(self, action: #selector(viewSettingParamRocket), for: .touchUpInside)
            return settingButtonIcon
        }()
        
-       @objc func viewSettingParamRocket() {
+       @objc private func viewSettingParamRocket() {
            let settingParamRocket = SettingViewParamRocketController()
            settingParamRocket.delegate = self
                present(settingParamRocket, animated: true)
@@ -205,7 +199,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let labelName: UILabel = {
            let labelName = UILabel()
-           labelName.translatesAutoresizingMaskIntoConstraints = false
            labelName.font = UIFont(name: "Lab Grotesque", size: 24)
            labelName.font = UIFont.systemFont(ofSize: 32, weight: .bold)
            labelName.textColor = .white
@@ -226,7 +219,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let labelDateOneStart: UILabel = {
            let labelDateOneStart = UILabel()
-           labelDateOneStart.translatesAutoresizingMaskIntoConstraints = false
            labelDateOneStart.font = UIFont(name: "Lab Grotesque", size: 16)
            labelDateOneStart.textColor = .white
            labelDateOneStart.text = "Первый запуск"
@@ -235,17 +227,15 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let dateOneStart: UILabel = {
            let dateOneStart = UILabel()
-           dateOneStart.translatesAutoresizingMaskIntoConstraints = false
            dateOneStart.font = UIFont(name: "Lab Grotesque", size: 16)
            dateOneStart.textColor = .white
-           dateOneStart.textAlignment = .center
+           dateOneStart.textAlignment = .right
            dateOneStart.text = ""
            return dateOneStart
        }()
        
     private let labelCountry: UILabel = {
            let labelCountry = UILabel()
-           labelCountry.translatesAutoresizingMaskIntoConstraints = false
            labelCountry.font = UIFont(name: "Lab Grotesque", size: 16)
            labelCountry.textColor = .white
            labelCountry.text = "Страна"
@@ -254,7 +244,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let country: UILabel = {
         let country = UILabel()
-        country.translatesAutoresizingMaskIntoConstraints = false
         country.font = UIFont(name: "Lab Grotesque", size: 16)
         country.textColor = .white
         country.text = ""
@@ -266,7 +255,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let labelStartupCost: UILabel = {
            let labelStartupCost = UILabel()
-           labelStartupCost.translatesAutoresizingMaskIntoConstraints = false
            labelStartupCost.font = UIFont(name: "Lab Grotesque", size: 16)
            labelStartupCost.textColor = .white
            labelStartupCost.text = "Стоимость запуска"
@@ -275,17 +263,15 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let startupCost: UILabel = {
            let startupCost = UILabel()
-           startupCost.translatesAutoresizingMaskIntoConstraints = false
            startupCost.font = UIFont(name: "Lab Grotesque", size: 16)
            startupCost.textColor = .white
            startupCost.text = ""
-           startupCost.textAlignment = .center
+           startupCost.textAlignment = .right
            return startupCost
        }()
        
     private let labelFirstStep: UILabel = {
            let labelFirstStep = UILabel()
-           labelFirstStep.translatesAutoresizingMaskIntoConstraints = false
            labelFirstStep.font = UIFont(name: "Lab Grotesque", size: 16)
            labelFirstStep.textColor = .white
            labelFirstStep.font = UIFont.systemFont(ofSize: 24, weight: .bold)
@@ -295,7 +281,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let labelFirstStageNumberOfEngines: UILabel = {
            let labelFirstStageNumberOfEngines = UILabel()
-           labelFirstStageNumberOfEngines.translatesAutoresizingMaskIntoConstraints = false
            labelFirstStageNumberOfEngines.font = UIFont(name: "Lab Grotesque", size: 16)
            labelFirstStageNumberOfEngines.textColor = .white
            labelFirstStageNumberOfEngines.text = "Количество двигателей"
@@ -304,17 +289,15 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let firstStageNumberOfEngines: UILabel = {
            let firstStageNumberOfEngines = UILabel()
-           firstStageNumberOfEngines.translatesAutoresizingMaskIntoConstraints = false
            firstStageNumberOfEngines.font = UIFont(name: "Lab Grotesque", size: 16)
            firstStageNumberOfEngines.textColor = .white
            firstStageNumberOfEngines.text = ""
-           firstStageNumberOfEngines.textAlignment = .center
+           firstStageNumberOfEngines.textAlignment = .right
            return firstStageNumberOfEngines
        }()
        
     private let labelFirstStageQuantitOfFuelInTons: UILabel = {
            let labelFirstStageQuantitOfFuelInTons = UILabel()
-           labelFirstStageQuantitOfFuelInTons.translatesAutoresizingMaskIntoConstraints = false
            labelFirstStageQuantitOfFuelInTons.font = UIFont(name: "Lab Grotesque", size: 16)
            labelFirstStageQuantitOfFuelInTons.textColor = .white
            labelFirstStageQuantitOfFuelInTons.text = "Количество топлива"
@@ -323,17 +306,15 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let firstStageQuantitOfFuelInTons: UILabel = {
            let firstStageQuantitOfFuelInTons = UILabel()
-           firstStageQuantitOfFuelInTons.translatesAutoresizingMaskIntoConstraints = false
            firstStageQuantitOfFuelInTons.font = UIFont(name: "Lab Grotesque", size: 16)
            firstStageQuantitOfFuelInTons.textColor = .white
            firstStageQuantitOfFuelInTons.text = ""
-           firstStageQuantitOfFuelInTons.textAlignment = .center
+           firstStageQuantitOfFuelInTons.textAlignment = .right
            return firstStageQuantitOfFuelInTons
        }()
        
     private let labelFirstStageBurnTimeInSeconds: UILabel = {
            let labelFirstStageBurnTimeInSeconds = UILabel()
-           labelFirstStageBurnTimeInSeconds.translatesAutoresizingMaskIntoConstraints = false
            labelFirstStageBurnTimeInSeconds.font = UIFont(name: "Lab Grotesque", size: 16)
            labelFirstStageBurnTimeInSeconds.textColor = .white
            labelFirstStageBurnTimeInSeconds.text = "Время сгорания"
@@ -342,17 +323,15 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let firstStageBurnTimeInSeconds: UILabel = {
            let firstStageBurnTimeInSeconds = UILabel()
-           firstStageBurnTimeInSeconds.translatesAutoresizingMaskIntoConstraints = false
            firstStageBurnTimeInSeconds.font = UIFont(name: "Lab Grotesque", size: 16)
            firstStageBurnTimeInSeconds.textColor = .white
            firstStageBurnTimeInSeconds.text = ""
-           firstStageBurnTimeInSeconds.textAlignment = .center
+           firstStageBurnTimeInSeconds.textAlignment = .right
            return firstStageBurnTimeInSeconds
        }()
        
     private let labelSecondStep: UILabel = {
            let labelSecondStep = UILabel()
-           labelSecondStep.translatesAutoresizingMaskIntoConstraints = false
            labelSecondStep.font = UIFont(name: "Lab Grotesque", size: 16)
            labelSecondStep.textColor = .white
            labelSecondStep.font = UIFont.systemFont(ofSize: 24, weight: .bold)
@@ -362,7 +341,6 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let labelSecondStageNumberOfEngines: UILabel = {
            let StageNumberOfEngines = UILabel()
-           StageNumberOfEngines.translatesAutoresizingMaskIntoConstraints = false
            StageNumberOfEngines.font = UIFont(name: "Lab Grotesque", size: 16)
            StageNumberOfEngines.textColor = .white
            StageNumberOfEngines.text = "Количество двигателей"
@@ -371,17 +349,15 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let secondStageNumberOfEngines: UILabel = {
            let StageNumberOfEngines = UILabel()
-           StageNumberOfEngines.translatesAutoresizingMaskIntoConstraints = false
            StageNumberOfEngines.font = UIFont(name: "Lab Grotesque", size: 16)
            StageNumberOfEngines.textColor = .white
            StageNumberOfEngines.text = ""
-           StageNumberOfEngines.textAlignment = .center
+           StageNumberOfEngines.textAlignment = .right
            return StageNumberOfEngines
        }()
        
     private let labelSecondStageQuantitOfFuelInTons: UILabel = {
            let StageQuantitOfFuelInTons = UILabel()
-           StageQuantitOfFuelInTons.translatesAutoresizingMaskIntoConstraints = false
            StageQuantitOfFuelInTons.font = UIFont(name: "Lab Grotesque", size: 16)
            StageQuantitOfFuelInTons.textColor = .white
            StageQuantitOfFuelInTons.text = "Количество топлива"
@@ -390,17 +366,15 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let secondStageQuantitOfFuelInTons: UILabel = {
            let StageQuantitOfFuelInTons = UILabel()
-           StageQuantitOfFuelInTons.translatesAutoresizingMaskIntoConstraints = false
            StageQuantitOfFuelInTons.font = UIFont(name: "Lab Grotesque", size: 16)
            StageQuantitOfFuelInTons.textColor = .white
            StageQuantitOfFuelInTons.text = ""
-           StageQuantitOfFuelInTons.textAlignment = .center
+           StageQuantitOfFuelInTons.textAlignment = .right
            return StageQuantitOfFuelInTons
        }()
        
     private let labelSecondStageBurnTimeInSeconds: UILabel = {
            let StageBurnTimeInSeconds = UILabel()
-           StageBurnTimeInSeconds.translatesAutoresizingMaskIntoConstraints = false
            StageBurnTimeInSeconds.font = UIFont(name: "Lab Grotesque", size: 16)
            StageBurnTimeInSeconds.textColor = .white
            StageBurnTimeInSeconds.text = "Время сгорания"
@@ -409,17 +383,15 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
        
     private let secondStageBurnTimeInSeconds: UILabel = {
            let StageBurnTimeInSeconds = UILabel()
-           StageBurnTimeInSeconds.translatesAutoresizingMaskIntoConstraints = false
            StageBurnTimeInSeconds.font = UIFont(name: "Lab Grotesque", size: 16)
            StageBurnTimeInSeconds.textColor = .white
            StageBurnTimeInSeconds.text = ""
-           StageBurnTimeInSeconds.textAlignment = .center
+           StageBurnTimeInSeconds.textAlignment = .right
            return StageBurnTimeInSeconds
        }()
        
     private lazy var buttonToViewLaunches: UIButton = {
            let buttonToViewLaunches = UIButton()
-           buttonToViewLaunches.translatesAutoresizingMaskIntoConstraints = false
            buttonToViewLaunches.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
            buttonToViewLaunches.setTitle("Посмотреть запуски", for: .normal)
            buttonToViewLaunches.layer.cornerRadius = 20
@@ -429,7 +401,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            return buttonToViewLaunches
        }()
        
-      @objc func viewListSpaceRocket() {
+      @objc private func viewListSpaceRocket() {
            let listSpaceRocket = TableListSpaceRocketController()
           navigationController?.pushViewController(listSpaceRocket, animated: true)
        }
@@ -440,8 +412,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            }
            
            contentView.snp.makeConstraints { make in
-               make.edges.equalTo(scrollInfoRocket)
-               make.width.equalTo(scrollInfoRocket)
+               make.edges.width.equalTo(scrollInfoRocket)
            }
            
            imageRocket.snp.makeConstraints { make in
@@ -451,9 +422,8 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            }
            
            blackView.snp.makeConstraints { make in
-               make.top.equalTo(imageRocket.snp.bottom).offset(-145)
-               make.left.equalToSuperview()
-               make.width.equalToSuperview()
+               make.top.equalTo(imageRocket.snp.bottom).inset(145)
+               make.left.width.equalToSuperview()
                make.height.equalToSuperview().multipliedBy(0.8)
            }
            
@@ -464,13 +434,12 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            
            settingButtonIcon.snp.makeConstraints { make in
                make.top.equalTo(blackView).offset(48)
-               make.right.equalToSuperview().offset(-32)
+               make.right.equalToSuperview().inset(32)
            }
            
            collectionView.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(112)
-               make.left.equalToSuperview().offset(0)
-               make.right.equalToSuperview().offset(0)
+               make.left.right.equalToSuperview().offset(0)
                make.height.equalTo(96)
            }
 
@@ -481,8 +450,8 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            
            dateOneStart.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(248)
-               make.right.equalToSuperview().offset(-32)
-               make.left.equalToSuperview().offset(233)
+               make.right.equalToSuperview().inset(32)
+               make.left.equalToSuperview().offset(228)
            }
            
            labelCountry.snp.makeConstraints { make in
@@ -492,7 +461,7 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            
            country.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(288)
-               make.right.equalToSuperview().offset(-32)
+               make.right.equalToSuperview().inset(32)
                make.left.equalToSuperview().offset(100)
            }
            
@@ -503,14 +472,13 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            
            startupCost.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(328)
-               make.right.equalToSuperview().offset(32)
+               make.right.equalToSuperview().inset(32)
                make.left.equalToSuperview().offset(233)
            }
            
            labelFirstStep.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(392)
-               make.right.equalToSuperview().offset(32)
-               make.left.equalToSuperview().offset(32)
+               make.right.left.equalToSuperview().offset(32)
            }
            
            labelFirstStageNumberOfEngines.snp.makeConstraints { make in
@@ -520,8 +488,9 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            
            firstStageNumberOfEngines.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(432)
-               make.right.equalToSuperview().offset(32)
-               make.left.equalToSuperview().offset(233)
+               make.left.equalToSuperview().offset(277)
+               make.right.equalToSuperview().inset(68)
+               
            }
            
            labelFirstStageQuantitOfFuelInTons.snp.makeConstraints { make in
@@ -531,8 +500,8 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            
            firstStageQuantitOfFuelInTons.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(472)
-               make.right.equalToSuperview().offset(32)
-               make.left.equalToSuperview().offset(233)
+               make.right.equalToSuperview().inset(32)
+               make.left.equalToSuperview().offset(227)
            }
            
            labelFirstStageBurnTimeInSeconds.snp.makeConstraints { make in
@@ -542,8 +511,8 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            
            firstStageBurnTimeInSeconds.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(512)
-               make.right.equalToSuperview().offset(32)
-               make.left.equalToSuperview().offset(233)
+               make.right.equalToSuperview().inset(32)
+               make.left.equalToSuperview().offset(227)
            }
            
            labelSecondStep.snp.makeConstraints { make in
@@ -559,8 +528,8 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            
            secondStageNumberOfEngines.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(616)
-               make.right.equalToSuperview().offset(32)
-               make.left.equalToSuperview().offset(233)
+               make.right.equalToSuperview().inset(68)
+               make.left.equalToSuperview().offset(227)
            }
            
            labelSecondStageQuantitOfFuelInTons.snp.makeConstraints { make in
@@ -570,8 +539,8 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            
            secondStageQuantitOfFuelInTons.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(656)
-               make.right.equalToSuperview().offset(32)
-               make.left.equalToSuperview().offset(233)
+               make.right.equalToSuperview().inset(32)
+               make.left.equalToSuperview().offset(227)
            }
            
            labelSecondStageBurnTimeInSeconds.snp.makeConstraints { make in
@@ -581,13 +550,13 @@ final class ViewController: UIViewController, UICollectionViewDelegate, UICollec
            
            secondStageBurnTimeInSeconds.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(696)
-               make.right.equalToSuperview().offset(32)
-               make.left.equalToSuperview().offset(233)
+               make.right.equalToSuperview().inset(32)
+               make.left.equalToSuperview().offset(227)
            }
            
            buttonToViewLaunches.snp.makeConstraints { make in
                make.top.equalToSuperview().offset(749)
-               make.right.equalToSuperview().offset(-32)
+               make.right.equalToSuperview().inset(32)
                make.left.equalToSuperview().offset(32)
                make.height.equalTo(70)
            }

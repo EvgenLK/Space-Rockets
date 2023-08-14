@@ -32,7 +32,6 @@ final class CustomCollectionViewCell: UICollectionViewCell {
     
     private let myLabelNumber: UILabel = {
         let myLabelNumber = UILabel()
-        myLabelNumber.translatesAutoresizingMaskIntoConstraints = false
         myLabelNumber.textColor = .white
         myLabelNumber.textAlignment = .center
         return myLabelNumber
@@ -40,7 +39,6 @@ final class CustomCollectionViewCell: UICollectionViewCell {
     
     private let myLabelNameParametr: UILabel = {
         let myLabelNameParametr = UILabel()
-        myLabelNameParametr.translatesAutoresizingMaskIntoConstraints = false
         myLabelNameParametr.textColor = .gray
         myLabelNameParametr.textAlignment = .center
         return myLabelNameParametr
@@ -51,13 +49,13 @@ final class CustomCollectionViewCell: UICollectionViewCell {
         myLabelNumber.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(28)
             make.left.equalToSuperview().offset(8)
-            make.right.equalToSuperview().offset(-8)
+            make.right.equalToSuperview().inset(8)
         }
         
         myLabelNameParametr.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(52)
             make.left.equalToSuperview().offset(1)
-            make.right.equalToSuperview().offset(-1)
+            make.right.equalToSuperview().inset(1)
         }
     }
     func configure(with parametr: CustomCellParamRocket) {

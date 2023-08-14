@@ -18,7 +18,6 @@ final class TableViewCellRocketLaunch: UITableViewCell {
         constraintsCell()
     }
     
-    
     private let nameRocketLabel: UILabel = {
         let nameRocketLabel = UILabel()
         nameRocketLabel.font = UIFont(name: "Arial", size: 20.0)
@@ -49,20 +48,19 @@ final class TableViewCellRocketLaunch: UITableViewCell {
         nameRocketLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(24)
             make.left.equalToSuperview().offset(24)
-            make.bottom.lessThanOrEqualToSuperview().offset(-24)
+            make.bottom.lessThanOrEqualToSuperview().inset(24)
         }
         
         dateLaunchRocketLabel.snp.makeConstraints { make in
             make.top.equalTo(nameRocketLabel.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(24)
-            make.bottom.equalToSuperview().offset(-24)
+            make.bottom.equalToSuperview().inset(24)
         }
         
         imageLaunchRocketLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(34)
-            make.right.equalToSuperview().offset(-32)
-            make.height.equalTo(32)
-            make.width.equalTo(32)
+            make.right.equalToSuperview().inset(32)
+            make.height.width.equalTo(32)
         }
     }
     

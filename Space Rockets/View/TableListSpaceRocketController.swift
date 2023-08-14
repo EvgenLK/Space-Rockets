@@ -56,8 +56,8 @@ final class TableListSpaceRocketController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellRocketLaunch
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCellRocketLaunch
+        guard let cell = cell else { return UITableViewCell() }
         let launch = launchesList[indexPath.row]
         cell.congifure(with: CustomCellModel(name: launch.name, date: viewHelper.formatDateLaunches(launch.staticFireDateUTC), image: "\(launch.imageSuccess)"))
         

@@ -42,7 +42,7 @@ final class SettingViewParamRocketController: UIViewController {
         return closeButton
     }()
 
-    @objc func closeButtonTapped() {
+    @objc private func closeButtonTapped() {
         delegate?.didUpdateRocketParameters(height: tappedValueHeight, diameter: tappedValueDiameter, mass: tappedValueMass, leo: tappedValueLeo)
         dismiss(animated: true, completion: nil)
     }
@@ -91,7 +91,7 @@ final class SettingViewParamRocketController: UIViewController {
         return heightUnitSegmented
     }()
     
-    @objc func setupHeightValue() {
+    @objc private func setupHeightValue() {
         tappedValueHeight = heightUnitSegmented.selectedSegmentIndex
     }
     
@@ -103,7 +103,7 @@ final class SettingViewParamRocketController: UIViewController {
         return diameterUnitSegmented
     }()
     
-    @objc func setupDiameterValue() {
+    @objc private func setupDiameterValue() {
         tappedValueDiameter = diameterUnitSegmented.selectedSegmentIndex
     }
     
@@ -127,7 +127,7 @@ final class SettingViewParamRocketController: UIViewController {
         return leoUnitSegmented
     }()
     
-    @objc func setupLeoValue() {
+    @objc private func setupLeoValue() {
         tappedValueLeo = leoUnitSegmented.selectedSegmentIndex
     }
 
@@ -179,28 +179,28 @@ final class SettingViewParamRocketController: UIViewController {
         
         heightUnitSegmented.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(120)
-            make.right.equalToSuperview().offset(-28)
+            make.right.equalToSuperview().inset(28)
             make.width.equalTo(115)
             make.height.equalTo(40)
         }
         
         diameterUnitSegmented.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(184)
-            make.right.equalToSuperview().offset(-28)
+            make.right.equalToSuperview().inset(28)
             make.width.equalTo(115)
             make.height.equalTo(40)
         }
         
         weightUnitSegmented.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(240)
-            make.right.equalToSuperview().offset(-28)
+            make.right.equalToSuperview().inset(28)
             make.width.equalTo(115)
             make.height.equalTo(40)
         }
         
         leoUnitSegmented.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(304)
-            make.right.equalToSuperview().offset(-28)
+            make.right.equalToSuperview().inset(28)
             make.width.equalTo(115)
             make.height.equalTo(40)
         }
