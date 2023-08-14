@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension MainRocketScreenView: UICollectionViewDelegateFlowLayout {
         
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width

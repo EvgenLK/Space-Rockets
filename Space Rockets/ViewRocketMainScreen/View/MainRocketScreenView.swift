@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-final class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, SettingViewParamRocketDelegate{
+final class MainRocketScreenView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, SettingViewParamRocketDelegate{
 
     let viewModelResponse = NetworkRocketResponse()
     let settingVC = SettingViewParamRocketController()
