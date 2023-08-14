@@ -11,6 +11,7 @@ import SnapKit
 final class SettingViewParamRocketController: UIViewController {
     
     weak var delegate: SettingViewParamRocketDelegate?
+    let saveAndReadDataSetting = SettingParamertUserDefaults()
     
     var tappedValueHeight: Int = 0
     var tappedValueDiameter: Int = 0
@@ -21,7 +22,16 @@ final class SettingViewParamRocketController: UIViewController {
         super.viewDidLoad()
         setupView()
         constraintsElements()
+        
+//        saveAndReadDataSetting.readUserSettingParametr { height, diameter, mass, leo in
+//            self.heightUnitSegmented.selectedSegmentIndex = height
+//            self.diameterUnitSegmented.selectedSegmentIndex = diameter
+//            self.weightUnitSegmented.selectedSegmentIndex = mass
+//            self.leoUnitSegmented.selectedSegmentIndex = leo
+//
+//        }
     }
+    
     
     private let titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -44,6 +54,7 @@ final class SettingViewParamRocketController: UIViewController {
 
     @objc private func closeButtonTapped() {
         delegate?.didUpdateRocketParameters(height: tappedValueHeight, diameter: tappedValueDiameter, mass: tappedValueMass, leo: tappedValueLeo)
+//        saveAndReadDataSetting.saveUserSettingParametr(height: tappedValueHeight, diameter: tappedValueDiameter, mass: tappedValueMass, leo: tappedValueLeo)
         dismiss(animated: true, completion: nil)
     }
 
