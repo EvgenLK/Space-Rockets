@@ -2,8 +2,7 @@
 //  NetworkLaunchesResponse.swift
 //  SpaceRockets
 //
-//  Created by Evgenii Kutasov on 05.08.2023.
-//
+//  Created by Evgenii Kutasov on 05.08.2023
 
 import Foundation
 
