@@ -48,13 +48,16 @@ final class MainRocketScreenView: UIViewController, UICollectionViewDelegate, UI
     }
     
     func didSelectPage() {
+        
             let tappedPageIndex = self.pageControl.currentPage
             self.indexPageControl = tappedPageIndex
             self.updateCell()
             self.updateUI()
+        
     }
     
     func didUpdateRocketParameters(height: Int, diameter: Int, mass: Int, leo: Int) {
+        
         arrayParametrName.removeAll()
             if let newHeightUnit = HeightUnit(rawValue: height) {
                 self.viewModelparametrRocket.currentHeightUnit = newHeightUnit
