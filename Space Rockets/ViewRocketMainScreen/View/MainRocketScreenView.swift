@@ -4,7 +4,6 @@ import SnapKit
 final class MainRocketScreenView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, SettingViewParamRocketDelegate{
 
     let viewModelResponse = NetworkRocketResponse()
-    let settingVC = SettingViewParamRocketController()
     let viewModel = ViewModelResponseRocket()
     let viewModelparametrRocket = ViewModelCollectionView()
     let viewModelHelper = ViewModelHelper()
@@ -12,11 +11,12 @@ final class MainRocketScreenView: UIViewController, UICollectionViewDelegate, UI
     var viewRocketParamData = [DataRocket.ParamRocket]()
     var dictionaryRocket: [String: String] = [:]
     var indexPageControl = 0
-    var arrayParametrName = ["Высота, m","Диаметр, m","Масса, kg","Нагрузка, lb"]
-    
-    
+    var viewModelUsersetting = SettingParamertUserDefaults()
+    var arrayParametrName = [String]()
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        firstUpdateCollectionView()
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
         
@@ -33,6 +33,18 @@ final class MainRocketScreenView: UIViewController, UICollectionViewDelegate, UI
         }
         setupView()
         constraints()
+    }
+    
+    func firstUpdateCollectionView() {
+        if arrayParametrName.isEmpty {
+            viewModelUsersetting.readUserSettingParametr { height, diameter, mass, leo in
+                print(height, diameter, mass, leo)
+                if height.description.isEmpty || diameter.description.isEmpty || mass.description.isEmpty || leo.description.isEmpty {
+                    self.didUpdateRocketParameters(height: 0, diameter: 0, mass: 0, leo: 0)
+                }
+                self.didUpdateRocketParameters(height: height, diameter: diameter, mass: mass, leo: leo)
+            }
+        }
     }
     
     func didSelectPage() {
@@ -107,7 +119,7 @@ final class MainRocketScreenView: UIViewController, UICollectionViewDelegate, UI
             if self.indexPageControl < rocketData.count {
                 let rocket = rocketData[self.indexPageControl]
                 self.labelName.text = rocket.name
-                self.viewModelHelper.loadImage(from: rocket.imageView ?? "rocket", into: self.imageRocket) // нужны рандомные картинки потом
+                self.viewModelHelper.loadImage(from: rocket.imageView ?? "rocket", into: self.imageRocket)
             }
         }
     }

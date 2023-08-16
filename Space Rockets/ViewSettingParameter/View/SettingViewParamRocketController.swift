@@ -11,18 +11,38 @@ import SnapKit
 final class SettingViewParamRocketController: UIViewController {
     
     weak var delegate: SettingViewParamRocketDelegate?
+    let saveAndReadDataSetting = SettingParamertUserDefaults()
     
     var tappedValueHeight: Int = 0
     var tappedValueDiameter: Int = 0
     var tappedValueMass: Int = 0
     var tappedValueLeo: Int = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         constraintsElements()
+                
+        saveAndReadDataSetting.readUserSettingParametr { height, diameter, mass, leo in
+            
+            self.tappedValueHeight = height
+            self.tappedValueDiameter = diameter
+            self.tappedValueMass = mass
+            self.tappedValueLeo = leo
+                        
+            self.heightUnitSegmented.selectedSegmentIndex = height
+            self.diameterUnitSegmented.selectedSegmentIndex = diameter
+            self.weightUnitSegmented.selectedSegmentIndex = mass
+            self.leoUnitSegmented.selectedSegmentIndex = leo
+        }
     }
     
+    @objc private func closeButtonTapped() {
+        delegate?.didUpdateRocketParameters(height: tappedValueHeight, diameter: tappedValueDiameter, mass: tappedValueMass, leo: tappedValueLeo)
+        saveAndReadDataSetting.saveUserSettingParametr(height: heightUnitSegmented.selectedSegmentIndex, diameter: diameterUnitSegmented.selectedSegmentIndex, mass: weightUnitSegmented.selectedSegmentIndex, leo: leoUnitSegmented.selectedSegmentIndex)
+        dismiss(animated: true, completion: nil)
+    }
+
     private let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Настройки"
@@ -41,12 +61,7 @@ final class SettingViewParamRocketController: UIViewController {
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         return closeButton
     }()
-
-    @objc private func closeButtonTapped() {
-        delegate?.didUpdateRocketParameters(height: tappedValueHeight, diameter: tappedValueDiameter, mass: tappedValueMass, leo: tappedValueLeo)
-        dismiss(animated: true, completion: nil)
-    }
-
+    
     private let heightUnit: UILabel = {
         let heightUnit = UILabel()
         heightUnit.text = "Высота"
