@@ -34,7 +34,7 @@ extension MainRocketScreenView: UICollectionViewDelegateFlowLayout {
         guard let cell = cell else { return UICollectionViewCell() }
         
         if let rocket = viewRocketParamData.first {
-            
+                        
             let ArrayRocketParam = ["Высота","Диаметр","Масса","Нагрузка"]
 
             dictionaryRocket["Высота"] = rocket.height
