@@ -56,6 +56,7 @@
 		9B68454C2A6899FF001EC6C2 /* SpaceDatumRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceDatumRocket.swift; sourceTree = "<group>"; };
 		9B6C0D7B2A5CB92200F27F36 /* DataRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRocket.swift; sourceTree = "<group>"; };
 		9B6DEB842A714891009E3E36 /* ExtansionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtansionCollectionView.swift; sourceTree = "<group>"; };
+		9B72C2392A8E1E6D00D439DF /* BeginScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BeginScreen.storyboard; sourceTree = "<group>"; };
 		9B73A55D2A67FDE40036D1C1 /* TableViewCellRocketLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellRocketLaunch.swift; sourceTree = "<group>"; };
 		9B73A5612A680C8D0036D1C1 /* CustomCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellModel.swift; sourceTree = "<group>"; };
 		9B7629A52A5C1989005E3C72 /* SpaceRockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceRockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +71,7 @@
 		9B79DB0B2A7E9C3E00E80103 /* ViewViewModelLaunchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewViewModelLaunchesList.swift; sourceTree = "<group>"; };
 		9B7A36272A8A549000E55D1F /* NetworkRocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRocketResponse.swift; sourceTree = "<group>"; };
 		9B7A36292A8A557500E55D1F /* NetworkLaunchesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLaunchesResponse.swift; sourceTree = "<group>"; };
+		9BB077B92A96BAE900AB249C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		9B76299C2A5C1989005E3C72 = {
 			isa = PBXGroup;
 			children = (
+				9BB077B92A96BAE900AB249C /* README.md */,
 				9B7629A72A5C1989005E3C72 /* Space Rockets */,
 				9B7629A62A5C1989005E3C72 /* Products */,
 			);
@@ -127,6 +130,7 @@
 				9B5E06432A81B3A700CF258D /* ImageIcon */,
 				9B7629A82A5C1989005E3C72 /* AppDelegate.swift */,
 				9B7629AA2A5C1989005E3C72 /* SceneDelegate.swift */,
+				9B72C2392A8E1E6D00D439DF /* BeginScreen.storyboard */,
 				9B7629B42A5C198A005E3C72 /* Assets.xcassets */,
 				9B7629B92A5C198A005E3C72 /* Info.plist */,
 				9B7629B12A5C1989005E3C72 /* Space_Rockets.xcdatamodeld */,
