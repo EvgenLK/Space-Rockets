@@ -12,7 +12,7 @@ Name - Space Rocket.
 - Written in Swift
 - Uses UIKit, URLSession, GCD, SnapKit.
 - Written on MVVM architecture
-- Uses [Info rocket] API(https://api.spacexdata.com/v4/rockets)
+- Uses API [Info rocket] (https://api.spacexdata.com/v4/rockets)
 - List Launches API [List Launches](https://api.spacexdata.com/v4/launches)
 - No external dependencies
 - Created in Xcode 14
