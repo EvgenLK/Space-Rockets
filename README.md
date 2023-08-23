@@ -17,7 +17,7 @@ Name - Space Rocket.
 - No external dependencies
 - Created in Xcode 14
 - Minimum deployment IOS 15
-- Дизайн приложения [Design project](https://www.figma.com/file/GLxcmFyzglgO8f6v4eRFHc/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5?type=design&node-id=2-3&mode=design&t=35p4NfaX75Kk2wRH-0)
+- Application Design [Design project](https://www.figma.com/file/GLxcmFyzglgO8f6v4eRFHc/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5?type=design&node-id=2-3&mode=design&t=35p4NfaX75Kk2wRH-0)
 
 ## About the app
 - Application information about the missile.
